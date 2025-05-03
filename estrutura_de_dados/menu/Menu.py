@@ -28,7 +28,7 @@ class Menu:
             print("3 - INSERIR COM POSIÇÃO")
             print("4 - PESQUISAR POR LETRAS")
             print("5 - EXCLUIR")
-            print("6 - QUANTIDADE")
+            print("6 - QUANTIDADE DE OCORRÊNCIAS")
             print("7 - LIMPAR LISTA")
             print("8 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")    
@@ -114,7 +114,11 @@ class Menu:
                         menu_lista()  
                         elemento_pesquisar_lista = input("PESQUISAR NOME: ")
 
-                        if elemento_pesquisar_lista.replace(" ", "").isalpha():
+                        if not lista.iterar_lista():
+                            limpar_tela()
+                            print("⚠️  Lista vazia")
+
+                        elif elemento_pesquisar_lista.replace(" ", "").isalpha():
                             limpar_tela()
                             lista.pesquisar_por_letras(elemento_pesquisar_lista)
                             for itens in lista.estrutura_sublista:
@@ -135,14 +139,26 @@ class Menu:
                         menu_lista()  
                         elemento_excluir_lista = input("EXCLUIR NOME: ")
 
-                        if elemento_excluir_lista.replace(" ", "").isalpha():
+                        if not lista.iterar_lista():
+                            limpar_tela()
+                            print("⚠️  Lista vazia")
+                 
+                        elif elemento_excluir_lista.replace(" ", "").isalpha():
                             lista.excluir_da_lista(elemento_excluir_lista)
                             limpar_tela()
                             print("✅ Excluído com sucesso!")
-                          
+
                         elif elemento_excluir_lista == None:   
                             limpar_tela() 
-                            print("❌ Entrada inválida!") 
+                            print("❌ Entrada inválida!")   
+
+                        elif elemento_excluir_lista == " ":   
+                            limpar_tela() 
+                            print("❌ Entrada inválida!")       
+
+                        elif elemento_excluir_lista not in lista.iterar_lista():
+                            limpar_tela()
+                            print("⚠️ ", elemento_excluir_lista, "não está na lista.")    
 
                         else:
                             limpar_tela()
@@ -154,14 +170,10 @@ class Menu:
                         menu_lista()
                         contar_elemento_lista = input("DIGITE O NOME: ")
 
-                        if not lista.iterar_lista():
-                            limpar_tela()
-                            print("⚠️  Lista vazia")
-
-                        elif contar_elemento_lista.replace(" ", "").isalpha():
+                        if contar_elemento_lista.replace(" ", "").isalpha():
                             quantidade_elementos = lista.quantidade_ocorrencias(contar_elemento_lista)
                             limpar_tela()
-                            print("✅ A lista possui", quantidade_elementos, "elementos do tipo", contar_elemento_lista, ".")  
+                            print("✅ A lista possui", quantidade_elementos, "elementos do tipo", contar_elemento_lista,".")  
 
                         elif contar_elemento_lista == None:
                             limpar_tela()
@@ -171,9 +183,17 @@ class Menu:
                             limpar_tela()
                             print("❌ Entrada inválida!")
 
-
+                    # Condicional da lista - Limpar lista.
                     elif opcoes_lista == "7":
-                        pass             
+                        if not lista.iterar_lista():
+                            limpar_tela()
+                            print("⚠️  Lista vazia")  
+
+                        else:   
+                            lista.limpar_lista()
+                            limpar_tela()
+                            print("✅ Lista Limpa!")
+
                     elif opcoes_lista == "8":
                         break
 
