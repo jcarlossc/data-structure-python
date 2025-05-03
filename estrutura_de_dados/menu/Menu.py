@@ -129,8 +129,26 @@ class Menu:
                             limpar_tela()
                             print("❌ Entrada inválida!")  
 
+                    # Condicional da lista - Excluir elementos.
                     elif opcoes_lista == "5":
-                        pass             
+                        limpar_tela()  
+                        menu_lista()  
+                        elemento_excluir_lista = input("EXCLUIR NOME: ")
+
+                        if elemento_excluir_lista.replace(" ", "").isalpha():
+                            lista.excluir_da_lista(elemento_excluir_lista)
+                            limpar_tela()
+                            print("✅ Excluído com sucesso!")
+                          
+                        elif elemento_excluir_lista == None:   
+                            limpar_tela() 
+                            print("❌ Entrada inválida!") 
+
+                        else:
+                            limpar_tela()
+                            print("❌ Entrada inválida!")   
+
+                    
                     elif opcoes_lista == "6":
                         pass             
                     elif opcoes_lista == "7":
