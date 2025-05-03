@@ -21,6 +21,18 @@ class Menu:
             print("9 - SAIR")
             print("----------------------------------- FIM ---------------------------------\n")
 
+        def menu_lista():
+            print("\n--------------------------------- LISTA ---------------------------------")
+            print("1 - LISTAR")
+            print("2 - ADICIONAR")
+            print("3 - INSERIR COM POSIÇÃO")
+            print("4 - PESQUISAR POR LETRAS")
+            print("5 - EXCLUIR")
+            print("6 - QUANTIDADE")
+            print("7 - LIMPAR LISTA")
+            print("8 - SAIR")
+            print("---------------------------------- FIM ----------------------------------\n")    
+
         lista = ClasseLista()
 
         def limpar_tela():
@@ -33,7 +45,48 @@ class Menu:
             tipo_estrutura = input("ESCOLHA O TIPO DE ESTRUTURA DE DADOS: ")
 
             if tipo_estrutura == "1":
-                pass
+                limpar_tela()
+                while True:
+                    menu_lista()
+                    opcoes_lista = input("ESCOLHA UMA OPERAÇÃO: ")
+
+                    if opcoes_lista == "1":
+                        limpar_tela()
+                        if not lista.iterar_lista():
+                            limpar_tela()
+                            print("⚠️  Lista vazia")
+
+                        elif opcoes_lista == None:
+                            limpar_tela()
+                            print("⚠️  Entrada inválida!")
+
+                        else:   
+                            for itens in lista.iterar_lista():
+                                 limpar_tela()
+                                 print("👤", itens.title()) 
+
+                    elif opcoes_lista == "2":
+                        pass             
+                    elif opcoes_lista == "3":
+                        pass             
+                    elif opcoes_lista == "4":
+                        pass             
+                    elif opcoes_lista == "5":
+                        pass             
+                    elif opcoes_lista == "6":
+                        pass             
+                    elif opcoes_lista == "7":
+                        pass             
+                    elif opcoes_lista == "8":
+                        break
+
+                    else:
+                        limpar_tela()
+                        print("❌ Opção inválida.")
+
+                limpar_tela()              
+
+
             elif tipo_estrutura == "2":
                 pass
             elif tipo_estrutura == "3":
