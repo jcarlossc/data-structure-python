@@ -40,16 +40,20 @@ class Menu:
 
         limpar_tela()    
 
+        # While principal do menu.
         while True:  
             menu_principal()
             tipo_estrutura = input("ESCOLHA O TIPO DE ESTRUTURA DE DADOS: ")
 
             if tipo_estrutura == "1":
                 limpar_tela()
+
+                # While da lista.
                 while True:
                     menu_lista()
                     opcoes_lista = input("ESCOLHA UMA OPERAÇÃO: ")
-
+                    
+                    # Condicional da lista - Iterar elementos.
                     if opcoes_lista == "1":
                         limpar_tela()
                         if not lista.iterar_lista():
@@ -64,6 +68,7 @@ class Menu:
                             for itens in lista.iterar_lista():
                                 print("👤", itens.title()) 
 
+                    # Condicional da lista - Adicionar elementos.
                     elif opcoes_lista == "2":
                         limpar_tela()
                         menu_lista()
@@ -82,8 +87,27 @@ class Menu:
                             limpar_tela()
                             print("❌ Entrada inválida!")  
 
+                    # Condicional da lista - Adicionar elementos com posição(index)
                     elif opcoes_lista == "3":
-                        pass             
+                        limpar_tela()
+                        menu_lista()
+                        posicao_lista = input("DIGITE A POSIÇÃO: ")  
+                        elemento_inserir_lista = input("DIGITE O NOME: ")  
+
+                        if posicao_lista.isdigit() and elemento_inserir_lista.replace(" ", "").isalpha():    
+                            numero_lista = int(posicao_lista)
+                            lista.inserir_com_posicao(numero_lista, elemento_inserir_lista) 
+                            limpar_tela()
+                            print("✅ Inserido com sucesso!")
+
+                        elif posicao_lista == None or elemento_inserir_lista == None:
+                            limpar_tela()
+                            print("❌ Entrada inválida!")       
+
+                        else:
+                            limpar_tela()
+                            print("❌ Entrada inválida!")   
+
                     elif opcoes_lista == "4":
                         pass             
                     elif opcoes_lista == "5":
