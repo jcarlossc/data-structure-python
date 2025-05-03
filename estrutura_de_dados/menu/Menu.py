@@ -107,9 +107,28 @@ class Menu:
                         else:
                             limpar_tela()
                             print("❌ Entrada inválida!")   
-
+                                
+                    # Condicional da lista - Pesquisar elementos.
                     elif opcoes_lista == "4":
-                        pass             
+                        limpar_tela()  
+                        menu_lista()  
+                        elemento_pesquisar_lista = input("PESQUISAR NOME: ")
+
+                        if elemento_pesquisar_lista.replace(" ", "").isalpha():
+                            limpar_tela()
+                            lista.pesquisar_por_letras(elemento_pesquisar_lista)
+                            for itens in lista.estrutura_sublista:
+                                print("👤", itens)
+                            lista.estrutura_sublista.clear()     
+                          
+                        elif elemento_pesquisar_lista == None:  
+                            limpar_tela()
+                            print("❌ Entrada inválida!") 
+
+                        else:
+                            limpar_tela()
+                            print("❌ Entrada inválida!")  
+
                     elif opcoes_lista == "5":
                         pass             
                     elif opcoes_lista == "6":
