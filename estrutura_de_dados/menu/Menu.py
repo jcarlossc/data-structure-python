@@ -148,9 +148,30 @@ class Menu:
                             limpar_tela()
                             print("❌ Entrada inválida!")   
 
-                    
+                    # Condicional da lista - Verificar quantidade de elementos.
                     elif opcoes_lista == "6":
-                        pass             
+                        limpar_tela()
+                        menu_lista()
+                        contar_elemento_lista = input("DIGITE O NOME: ")
+
+                        if not lista.iterar_lista():
+                            limpar_tela()
+                            print("⚠️  Lista vazia")
+
+                        elif contar_elemento_lista.replace(" ", "").isalpha():
+                            quantidade_elementos = lista.quantidade_ocorrencias(contar_elemento_lista)
+                            limpar_tela()
+                            print("✅ A lista possui", quantidade_elementos, "elementos do tipo", contar_elemento_lista, ".")  
+
+                        elif contar_elemento_lista == None:
+                            limpar_tela()
+                            print("❌ Entrada inválida!")      
+
+                        else:   
+                            limpar_tela()
+                            print("❌ Entrada inválida!")
+
+
                     elif opcoes_lista == "7":
                         pass             
                     elif opcoes_lista == "8":

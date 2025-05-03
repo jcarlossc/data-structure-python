@@ -23,8 +23,8 @@ class ClasseLista:
     def excluir_da_lista(self, elemento):   
         self.estrutura_lista.remove(elemento.lower())
 
-    def quantidade(self):
-        return self.estrutura_lista.count()
+    def quantidade_ocorrencias(self, elemento):
+        return self.estrutura_lista.count(elemento)
     
     def limpar_lista(self):
         return self.estrutura_lista.clear()
