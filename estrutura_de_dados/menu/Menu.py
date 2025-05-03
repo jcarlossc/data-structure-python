@@ -62,11 +62,26 @@ class Menu:
 
                         else:   
                             for itens in lista.iterar_lista():
-                                 limpar_tela()
-                                 print("👤", itens.title()) 
+                                print("👤", itens.title()) 
 
                     elif opcoes_lista == "2":
-                        pass             
+                        limpar_tela()
+                        menu_lista()
+                        elemento_adicionar_lista = input("DIGITE UM NOME: ")
+
+                        if elemento_adicionar_lista.replace(" ", "").isalpha():
+                            lista.adicionar_na_lista(elemento_adicionar_lista)
+                            limpar_tela()
+                            print("✅ Adicionado com sucesso!")
+                            
+                        elif elemento_adicionar_lista == None:    
+                            limpar_tela()
+                            print("❌ Entrada inválida!") 
+
+                        else:
+                            limpar_tela()
+                            print("❌ Entrada inválida!")  
+
                     elif opcoes_lista == "3":
                         pass             
                     elif opcoes_lista == "4":
