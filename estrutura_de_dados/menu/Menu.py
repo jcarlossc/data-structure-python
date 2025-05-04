@@ -120,10 +120,17 @@ class Menu:
 
                         elif elemento_pesquisar_lista.replace(" ", "").isalpha():
                             limpar_tela()
-                            lista.pesquisar_por_letras(elemento_pesquisar_lista)
-                            for itens in lista.estrutura_sublista:
-                                print("👤", itens)
-                            lista.estrutura_sublista.clear()     
+
+                            if elemento_pesquisar_lista:
+                                lista.pesquisar_por_letras(elemento_pesquisar_lista)  
+                                if lista.sublistar == None:
+                                    limpar_tela()
+                                    print("⚠️ ", elemento_pesquisar_lista, "não encontrado.") 
+                            else:    
+                                lista.pesquisar_por_letras(elemento_pesquisar_lista)
+                                for itens in lista.estrutura_sublista:
+                                    print("👤", itens)
+                                lista.estrutura_sublista.clear()   
                           
                         elif elemento_pesquisar_lista == None:  
                             limpar_tela()
@@ -143,26 +150,24 @@ class Menu:
                             limpar_tela()
                             print("⚠️  Lista vazia")
                  
-                        elif elemento_excluir_lista.replace(" ", "").isalpha():
-                            lista.excluir_da_lista(elemento_excluir_lista)
-                            limpar_tela()
-                            print("✅ Excluído com sucesso!")
-
                         elif elemento_excluir_lista == None:   
                             limpar_tela() 
                             print("❌ Entrada inválida!")   
 
-                        elif elemento_excluir_lista == " ":   
-                            limpar_tela() 
-                            print("❌ Entrada inválida!")       
+                        elif elemento_excluir_lista.replace(" ", "").isalpha():
 
-                        elif elemento_excluir_lista not in lista.iterar_lista():
-                            limpar_tela()
-                            print("⚠️ ", elemento_excluir_lista, "não está na lista.")    
+                            if elemento_excluir_lista not in lista.iterar_lista():
+                                limpar_tela()
+                                print("⚠️ ", elemento_excluir_lista, "não está na lista.") 
+
+                            else: 
+                                lista.excluir_da_lista(elemento_excluir_lista)
+                                limpar_tela()
+                                print("✅ Excluído com sucesso!")
 
                         else:
                             limpar_tela()
-                            print("❌ Entrada inválida!")   
+                            print("❌ Entrada inválida!")     
 
                     # Condicional da lista - Verificar quantidade de elementos.
                     elif opcoes_lista == "6":
