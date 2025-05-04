@@ -8,6 +8,7 @@ class Menu:
     @classmethod    
     def menu(self):
 
+        # Método principal.
         def menu_principal():
             print("\n-------------------------- ESTRUTURAS DE DADOS --------------------------")
             print("1 - LISTA")
@@ -21,6 +22,7 @@ class Menu:
             print("9 - SAIR")
             print("----------------------------------- FIM ---------------------------------\n")
 
+        # Método menu da lista.
         def menu_lista():
             print("\n--------------------------------- LISTA ---------------------------------")
             print("1 - LISTAR")
@@ -33,11 +35,14 @@ class Menu:
             print("8 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")    
 
+        # Instâncias das classes das estruturas de dados.
         lista = ClasseLista()
 
+        # Método para limpar tela.
         def limpar_tela():
             os.system('cls' if os.name == 'nt' else 'clear')
 
+        # Chama método para limpar tela.
         limpar_tela()    
 
         # While principal do menu.
@@ -45,6 +50,7 @@ class Menu:
             menu_principal()
             tipo_estrutura = input("ESCOLHA O TIPO DE ESTRUTURA DE DADOS: ")
 
+            # Condicional principal - Lista.
             if tipo_estrutura == "1":
                 limpar_tela()
 
@@ -118,20 +124,16 @@ class Menu:
                             limpar_tela()
                             print("⚠️  Lista vazia")
 
-                        elif elemento_pesquisar_lista.replace(" ", "").isalpha():
+                        elif elemento_pesquisar_lista.replace(" ", "").isalpha(): 
                             limpar_tela()
-
-                            if elemento_pesquisar_lista:
-                                lista.pesquisar_por_letras(elemento_pesquisar_lista)  
-                                if lista.sublistar == None:
-                                    limpar_tela()
-                                    print("⚠️ ", elemento_pesquisar_lista, "não encontrado.") 
-                            else:    
-                                lista.pesquisar_por_letras(elemento_pesquisar_lista)
-                                for itens in lista.estrutura_sublista:
-                                    print("👤", itens)
-                                lista.estrutura_sublista.clear()   
-                          
+                            lista.pesquisar_por_letras(elemento_pesquisar_lista)
+                            for itens in lista.estrutura_sublista:  
+                                print("👤", itens.title())  
+                            if not lista.sublistar():
+                                limpar_tela()
+                                print("⚠️  Não encontrado!")        
+                            lista.estrutura_sublista.clear()   
+  
                         elif elemento_pesquisar_lista == None:  
                             limpar_tela()
                             print("❌ Entrada inválida!") 
@@ -156,7 +158,7 @@ class Menu:
 
                         elif elemento_excluir_lista.replace(" ", "").isalpha():
 
-                            if elemento_excluir_lista not in lista.iterar_lista():
+                            if elemento_excluir_lista.lower() not in lista.iterar_lista():
                                 limpar_tela()
                                 print("⚠️ ", elemento_excluir_lista, "não está na lista.") 
 
@@ -199,6 +201,7 @@ class Menu:
                             limpar_tela()
                             print("✅ Lista Limpa!")
 
+                    # Condicional da lista - Sai do while.
                     elif opcoes_lista == "8":
                         break
 
@@ -208,7 +211,7 @@ class Menu:
 
                 limpar_tela()              
 
-
+            # Condicional principal - Tupla.
             elif tipo_estrutura == "2":
                 pass
             elif tipo_estrutura == "3":
