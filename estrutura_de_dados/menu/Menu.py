@@ -1,5 +1,6 @@
 import os
 from estrutura_de_dados.lista.ClasseLista import ClasseLista
+from estrutura_de_dados.tupla.ClasseTupla import ClasseTupla
 
 class Menu:
     def __init__(self):
@@ -35,8 +36,20 @@ class Menu:
             print("8 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")    
 
+        def menu_tupla():
+            print("\n--------------------------------- TUPLA ---------------------------------")
+            print("1 - LISTAR")
+            print("2 - CONTAR OCORRÊNCIAS")
+            print("3 - BUSCAR ÍNDICE")
+            print("4 - QUANTIDADE")
+            print("5 - MÁXIMO")
+            print("6 - MÍNIMO")
+            print("7 - SAIR")
+            print("---------------------------------- FIM ----------------------------------\n")    
+
         # Instâncias das classes das estruturas de dados.
         lista = ClasseLista()
+        tupla = ClasseTupla()
 
         # Método para limpar tela.
         def limpar_tela():
@@ -59,7 +72,7 @@ class Menu:
                     menu_lista()
                     opcoes_lista = input("ESCOLHA UMA OPERAÇÃO: ")
                     
-                    # Condicional da lista - Iterar elementos.
+                    # Condicional da lista - Itera elementos.
                     if opcoes_lista == "1":
                         limpar_tela()
                         if not lista.iterar_lista():
@@ -68,7 +81,7 @@ class Menu:
 
                         elif opcoes_lista == None:
                             limpar_tela()
-                            print("⚠️  Entrada inválida!")
+                            print("❌ Entrada inválida!")
 
                         else:   
                             for itens in lista.iterar_lista():
@@ -213,7 +226,50 @@ class Menu:
 
             # Condicional principal - Tupla.
             elif tipo_estrutura == "2":
-                pass
+                limpar_tela()
+
+                # While da tupla
+                while True:
+                    menu_tupla()
+                    opcoes_tupla = input("ESCOLHA UMA OPERAÇÃO: ")
+
+                    # Condicional da tupla - Itera elementos.
+                    if opcoes_tupla == "1":
+                        limpar_tela()
+
+                        if not tupla.iterar_tupla():
+                            limpar_tela()
+                            print("⚠️  Lista vazia")
+
+                        elif opcoes_tupla == None:
+                            limpar_tela()
+                            print("❌ Entrada inválida!")
+
+                        else:   
+                            for itens in tupla.iterar_tupla():
+                                print("👤", itens.title()) 
+
+                    elif opcoes_tupla == "2": 
+                        pass
+
+
+                    elif opcoes_tupla == "3": 
+                        pass                
+                    elif opcoes_tupla == "4": 
+                        pass                
+                    elif opcoes_tupla == "5": 
+                        pass                
+                    elif opcoes_tupla == "6": 
+                        pass                
+                    elif opcoes_tupla == "7": 
+                        break
+
+                    else:
+                        limpar_tela()
+                        print("❌ Opção inválida.")
+
+                limpar_tela()         
+
             elif tipo_estrutura == "3":
                 pass
             elif tipo_estrutura == "4":
