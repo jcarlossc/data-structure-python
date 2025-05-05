@@ -41,7 +41,7 @@ class Menu:
             print("1 - LISTAR")
             print("2 - PESQUISAR OCORRÊNCIAS")
             print("3 - PESQUISAR POR ÍNDICE")
-            print("4 - QUANTIDADE")
+            print("4 - QUANTIDADE DE ELEMENTOS")
             print("5 - MÁXIMO")
             print("6 - MÍNIMO")
             print("7 - SAIR")
@@ -291,9 +291,11 @@ class Menu:
                             limpar_tela()
                             print("❌ Entrada inválida!") 
 
-
+                    # Condicional da tupla - Pesquisar quantidade de elementos.
                     elif opcoes_tupla == "4": 
-                        pass                
+                        limpar_tela()
+                        print(f"✅ Existem {tupla.quantidade()} elementos na tupla.")
+
                     elif opcoes_tupla == "5": 
                         pass                
                     elif opcoes_tupla == "6": 
