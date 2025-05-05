@@ -346,16 +346,42 @@ class Menu:
                     menu_conjunto()
                     opcoes_conjunto = input("ESCOLHA UMA OPERAÇÃO: ")
 
+                    # Condicional do conjunto(set) - Iterar elementos.
                     if opcoes_conjunto == "1":
+                        limpar_tela()
+                        menu_lista()
+                        
                         if not conjunto.iterar_conjunto():
                             limpar_tela()
                             print(f"⚠️  Lista vazia")
                         else:   
+                            limpar_tela()
                             for itens in conjunto.iterar_conjunto():
                                 print(f"👤 {itens.title()}") 
 
+                    # Condicional do conjunto(set) - Adicionar elementos.
                     elif opcoes_conjunto == "2":   
-                        pass         
+                        limpar_tela()
+                        menu_lista()
+                        elemento_adicionar_conjunto = input("ADICIONAR UM NOME: ")
+
+                        if elemento_adicionar_conjunto.replace(" ", "").isalpha():
+                            if elemento_adicionar_conjunto in conjunto.iterar_conjunto():  
+                                limpar_tela() 
+                                print(f"⚠️  O nome já existe!") 
+                            else:    
+                                conjunto.adicionar(elemento_adicionar_conjunto)
+                                limpar_tela()
+                                print(f"✅ Adicionado com sucesso!")  
+                                        
+                        elif elemento_adicionar_conjunto == None:  
+                            limpar_tela()  
+                            print(f"❌ Entrada inválida!") 
+
+                        else:
+                            limpar_tela()
+                            print(f"❌ Entrada inválida!")  
+
                     elif opcoes_conjunto == "3":   
                         pass         
                     elif opcoes_conjunto == "4":   
