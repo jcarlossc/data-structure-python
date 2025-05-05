@@ -1,4 +1,5 @@
 import os
+from estrutura_de_dados.conjunto.ClasseConjunto import ClasseConjunto
 from estrutura_de_dados.lista.ClasseLista import ClasseLista
 from estrutura_de_dados.tupla.ClasseTupla import ClasseTupla
 
@@ -36,6 +37,7 @@ class Menu:
             print("8 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")    
 
+        # Método menu da tupla.
         def menu_tupla():
             print("\n--------------------------------- TUPLA ---------------------------------")
             print("1 - LISTAR")
@@ -47,10 +49,23 @@ class Menu:
             print("7 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")    
 
+        # Método menu do conjunto(set).
+        def menu_conjunto():
+            print("\n-------------------------------- CONJUNTO -------------------------------")
+            print("1 - LISTAR")
+            print("2 - ADICIONAR")
+            print("3 - APAGAR")
+            print("4 - APAGAR ALEATÓRIO")
+            print("5 - UNIÃO")
+            print("6 - INTERSEÇÃO")
+            print("7 - DIFERENÇA")
+            print("8 - SAIR")
+            print("---------------------------------- FIM ----------------------------------\n")  
 
         # Instâncias das classes das estruturas de dados.
         lista = ClasseLista()
         tupla = ClasseTupla()
+        conjunto = ClasseConjunto()
 
         # Método para limpar tela.
         def limpar_tela():
@@ -92,7 +107,7 @@ class Menu:
                     elif opcoes_lista == "2":
                         limpar_tela()
                         menu_lista()
-                        elemento_adicionar_lista = input("DIGITE UM NOME: ")
+                        elemento_adicionar_lista = input("ADICIONE UM ELEMENTO: ")
 
                         if elemento_adicionar_lista.replace(" ", "").isalpha():
                             lista.adicionar_na_lista(elemento_adicionar_lista)
@@ -324,7 +339,42 @@ class Menu:
                 limpar_tela()         
 
             elif tipo_estrutura == "3":
-                pass
+                limpar_tela()
+
+                # While do conjunto(set)
+                while True:
+                    menu_conjunto()
+                    opcoes_conjunto = input("ESCOLHA UMA OPERAÇÃO: ")
+
+                    if opcoes_conjunto == "1":
+                        if not conjunto.iterar_conjunto():
+                            limpar_tela()
+                            print(f"⚠️  Lista vazia")
+                        else:   
+                            for itens in conjunto.iterar_conjunto():
+                                print(f"👤 {itens.title()}") 
+
+                    elif opcoes_conjunto == "2":   
+                        pass         
+                    elif opcoes_conjunto == "3":   
+                        pass         
+                    elif opcoes_conjunto == "4":   
+                        pass         
+                    elif opcoes_conjunto == "5":   
+                        pass         
+                    elif opcoes_conjunto == "6":   
+                        pass         
+                    elif opcoes_conjunto == "7":   
+                        pass         
+                    elif opcoes_conjunto == "8":   
+                        break
+
+                    else:
+                        limpar_tela()
+                        print(f"❌ Opção inválida.")
+
+                limpar_tela()       
+
             elif tipo_estrutura == "4":
                 pass
             elif tipo_estrutura == "5":
