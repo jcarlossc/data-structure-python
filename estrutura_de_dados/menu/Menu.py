@@ -1,5 +1,6 @@
 import os
 from estrutura_de_dados.lista.ClasseLista import ClasseLista
+from estrutura_de_dados.tupla.ClasseTupla import ClasseTupla
 
 class Menu:
     def __init__(self):
@@ -8,6 +9,7 @@ class Menu:
     @classmethod    
     def menu(self):
 
+        # Método principal.
         def menu_principal():
             print("\n-------------------------- ESTRUTURAS DE DADOS --------------------------")
             print("1 - LISTA")
@@ -21,6 +23,7 @@ class Menu:
             print("9 - SAIR")
             print("----------------------------------- FIM ---------------------------------\n")
 
+        # Método menu da lista.
         def menu_lista():
             print("\n--------------------------------- LISTA ---------------------------------")
             print("1 - LISTAR")
@@ -33,11 +36,26 @@ class Menu:
             print("8 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")    
 
-        lista = ClasseLista()
+        def menu_tupla():
+            print("\n--------------------------------- TUPLA ---------------------------------")
+            print("1 - LISTAR")
+            print("2 - PESQUISAR OCORRÊNCIAS")
+            print("3 - PESQUISAR POR ÍNDICE")
+            print("4 - QUANTIDADE DE ELEMENTOS")
+            print("5 - ORDEM MÁXIMO")
+            print("6 - ORDEM MÍNIMO")
+            print("7 - SAIR")
+            print("---------------------------------- FIM ----------------------------------\n")    
 
+        # Instâncias das classes das estruturas de dados.
+        lista = ClasseLista()
+        tupla = ClasseTupla()
+
+        # Método para limpar tela.
         def limpar_tela():
             os.system('cls' if os.name == 'nt' else 'clear')
 
+        # Chama método para limpar tela.
         limpar_tela()    
 
         # While principal do menu.
@@ -45,6 +63,7 @@ class Menu:
             menu_principal()
             tipo_estrutura = input("ESCOLHA O TIPO DE ESTRUTURA DE DADOS: ")
 
+            # Condicional principal - Lista.
             if tipo_estrutura == "1":
                 limpar_tela()
 
@@ -53,7 +72,7 @@ class Menu:
                     menu_lista()
                     opcoes_lista = input("ESCOLHA UMA OPERAÇÃO: ")
                     
-                    # Condicional da lista - Iterar elementos.
+                    # Condicional da lista - Itera elementos.
                     if opcoes_lista == "1":
                         limpar_tela()
                         if not lista.iterar_lista():
@@ -62,7 +81,7 @@ class Menu:
 
                         elif opcoes_lista == None:
                             limpar_tela()
-                            print("⚠️  Entrada inválida!")
+                            print("❌ Entrada inválida!")
 
                         else:   
                             for itens in lista.iterar_lista():
@@ -118,20 +137,16 @@ class Menu:
                             limpar_tela()
                             print("⚠️  Lista vazia")
 
-                        elif elemento_pesquisar_lista.replace(" ", "").isalpha():
+                        elif elemento_pesquisar_lista.replace(" ", "").isalpha(): 
                             limpar_tela()
-
-                            if elemento_pesquisar_lista:
-                                lista.pesquisar_por_letras(elemento_pesquisar_lista)  
-                                if lista.sublistar == None:
-                                    limpar_tela()
-                                    print("⚠️ ", elemento_pesquisar_lista, "não encontrado.") 
-                            else:    
-                                lista.pesquisar_por_letras(elemento_pesquisar_lista)
-                                for itens in lista.estrutura_sublista:
-                                    print("👤", itens)
-                                lista.estrutura_sublista.clear()   
-                          
+                            lista.pesquisar_por_letras(elemento_pesquisar_lista)
+                            for itens in lista.estrutura_sublista:  
+                                print("👤", itens.title())  
+                            if not lista.sublistar():
+                                limpar_tela()
+                                print("⚠️  Não encontrado!")        
+                            lista.estrutura_sublista.clear()   
+  
                         elif elemento_pesquisar_lista == None:  
                             limpar_tela()
                             print("❌ Entrada inválida!") 
@@ -156,7 +171,7 @@ class Menu:
 
                         elif elemento_excluir_lista.replace(" ", "").isalpha():
 
-                            if elemento_excluir_lista not in lista.iterar_lista():
+                            if elemento_excluir_lista.lower() not in lista.iterar_lista():
                                 limpar_tela()
                                 print("⚠️ ", elemento_excluir_lista, "não está na lista.") 
 
@@ -176,9 +191,9 @@ class Menu:
                         contar_elemento_lista = input("DIGITE O NOME: ")
 
                         if contar_elemento_lista.replace(" ", "").isalpha():
-                            quantidade_elementos = lista.quantidade_ocorrencias(contar_elemento_lista)
+                            quantidade_elementos_lista = lista.quantidade_ocorrencias(contar_elemento_lista)
                             limpar_tela()
-                            print("✅ A lista possui", quantidade_elementos, "elementos do tipo", contar_elemento_lista,".")  
+                            print("✅ A lista possui", quantidade_elementos_lista, "elementos do tipo", contar_elemento_lista,".")  
 
                         elif contar_elemento_lista == None:
                             limpar_tela()
@@ -199,6 +214,7 @@ class Menu:
                             limpar_tela()
                             print("✅ Lista Limpa!")
 
+                    # Condicional da lista - Sai do while.
                     elif opcoes_lista == "8":
                         break
 
@@ -208,9 +224,100 @@ class Menu:
 
                 limpar_tela()              
 
-
+            # Condicional principal - Tupla.
             elif tipo_estrutura == "2":
-                pass
+                limpar_tela()
+
+                # While da tupla
+                while True:
+                    menu_tupla()
+                    opcoes_tupla = input("ESCOLHA UMA OPERAÇÃO: ")
+
+                    # Condicional da tupla - Itera elementos.
+                    if opcoes_tupla == "1":
+                        limpar_tela()
+
+                        if not tupla.iterar_tupla():
+                            limpar_tela()
+                            print("⚠️  Lista vazia")
+
+                        elif opcoes_tupla == None:
+                            limpar_tela()
+                            print("❌ Entrada inválida!")
+
+                        else:   
+                            for itens in tupla.iterar_tupla():
+                                print(f"👤 {itens.title()}") 
+
+                    # Condicional da tupla - Pesquisar ocorrências dos elementos.
+                    elif opcoes_tupla == "2": 
+                        ocorrencias_tupla = input("DIGITE UM NOME: ")
+
+                        if ocorrencias_tupla.replace(" ", "").isalpha():
+                            if not ocorrencias_tupla in tupla.iterar_tupla():
+                                limpar_tela()
+                                print(f"⚠️  Não há ocorrência do elemento {ocorrencias_tupla.title()}.")
+                            else:    
+                                limpar_tela()
+                                quantidade_elementos_tupla = tupla.contar_ocorrencias(ocorrencias_tupla)
+                                limpar_tela()
+                                print(f"✅ A tupla possui {quantidade_elementos_tupla} ocorrências do elemento {ocorrencias_tupla.title()}.")
+
+                        elif ocorrencias_tupla == None:    
+                            limpar_tela()
+                            print("❌ Entrada inválida!") 
+
+                        else:
+                            limpar_tela()
+                            print("❌ Entrada inválida!") 
+
+                    # Condicional da tupla - Pesquisar índice dos elementos.
+                    elif opcoes_tupla == "3": 
+                        pesquisa_nome_tupla = input("DIGITE UM NOME: ")
+
+                        if pesquisa_nome_tupla.replace(" ", "").isalpha():
+                            if not pesquisa_nome_tupla in tupla.iterar_tupla():
+                                limpar_tela()
+                                print(f"⚠️  Não há ocorrência do elemento {pesquisa_nome_tupla.title()}.")
+                            else:    
+                                limpar_tela()
+                                print(f"✅ A primeira ocorrência do elemento {pesquisa_nome_tupla.title()} está no índice {tupla.buscar_indice(pesquisa_nome_tupla)}.")
+
+                        elif pesquisa_nome_tupla == None:  
+                            limpar_tela()  
+                            print("❌ Entrada inválida!") 
+
+                        else:
+                            limpar_tela()
+                            print("❌ Entrada inválida!") 
+
+                    # Condicional da tupla - Pesquisar quantidade de elementos.
+                    elif opcoes_tupla == "4": 
+                        limpar_tela()
+                        print(f"✅ Existem {tupla.quantidade()} elementos na tupla.")
+
+                    # Condicional da tupla - Pesquisa por elementos em ordem alfabética máxima.
+                    elif opcoes_tupla == "5": 
+                        ordem_maxima = tupla.ordem_maxima()
+                        limpar_tela()
+                        print(f"✅ {ordem_maxima.title()} é a primeira ocorrência do último elemento em ordem alfabética.") 
+
+                    # Condicional da tupla - Pesquisa por elementos em ordem alfabética mínima.
+                    elif opcoes_tupla == "6": 
+                        ordem_minima = tupla.ordem_minima()
+                        limpar_tela()
+                        print(f"✅ {ordem_minima.title()} é a primeira ocorrência do primeiro elemento em ordem alfabética.")
+
+                    # Condicional da tupla - Sai do while.
+                    elif opcoes_tupla == "7": 
+                        break
+
+                    else:
+                        limpar_tela()
+                        print("❌ Opção inválida.")
+
+                limpar_tela()         
+
             elif tipo_estrutura == "3":
                 pass
             elif tipo_estrutura == "4":
