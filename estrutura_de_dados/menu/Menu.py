@@ -42,8 +42,8 @@ class Menu:
             print("2 - PESQUISAR OCORRÊNCIAS")
             print("3 - PESQUISAR POR ÍNDICE")
             print("4 - QUANTIDADE DE ELEMENTOS")
-            print("5 - MÁXIMO")
-            print("6 - MÍNIMO")
+            print("5 - ORDEM MÁXIMO")
+            print("6 - ORDEM MÍNIMO")
             print("7 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")    
 
@@ -308,6 +308,7 @@ class Menu:
                         limpar_tela()
                         print(f"✅ {ordem_minima.title()} é a primeira ocorrência do primeiro elemento em ordem alfabética.")
 
+                    # Condicional da tupla - Sai do while.
                     elif opcoes_tupla == "7": 
                         break
 
