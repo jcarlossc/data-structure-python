@@ -8,8 +8,8 @@ class ClasseTupla:
     def contar_ocorrencias(self, nome):
         return self.tupla.count(nome.lower())
     
-    def buscar_indice(self, nome):
-        return self.tupla.index(nome.lower())
+    def buscar_indice(self, elemento):
+        return self.tupla.index(elemento)
     
     def quantidade(self):
         return len(self.tupla)

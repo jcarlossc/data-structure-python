@@ -39,8 +39,8 @@ class Menu:
         def menu_tupla():
             print("\n--------------------------------- TUPLA ---------------------------------")
             print("1 - LISTAR")
-            print("2 - CONTAR OCORRÊNCIAS")
-            print("3 - BUSCAR ÍNDICE")
+            print("2 - PESQUISAR OCORRÊNCIAS")
+            print("3 - PESQUISAR POR ÍNDICE")
             print("4 - QUANTIDADE")
             print("5 - MÁXIMO")
             print("6 - MÍNIMO")
@@ -247,15 +247,21 @@ class Menu:
 
                         else:   
                             for itens in tupla.iterar_tupla():
-                                print("👤", itens.title()) 
+                                print(f"👤 {itens.title()}") 
 
+                    # Condicional da tupla - Pesquisar ocorrências dos elementos.
                     elif opcoes_tupla == "2": 
                         ocorrencias_tupla = input("DIGITE UM NOME: ")
 
                         if ocorrencias_tupla.replace(" ", "").isalpha():
-                            quantidade_elementos_tupla = tupla.contar_ocorrencias(ocorrencias_tupla)
-                            limpar_tela()
-                            print("✅ A tupla possui", quantidade_elementos_tupla, "ocorrências do elemento", ocorrencias_tupla.title(),".")
+                            if not ocorrencias_tupla in tupla.iterar_tupla():
+                                limpar_tela()
+                                print(f"⚠️  Não há ocorrência do elemento {ocorrencias_tupla.title()}.")
+                            else:    
+                                limpar_tela()
+                                quantidade_elementos_tupla = tupla.contar_ocorrencias(ocorrencias_tupla)
+                                limpar_tela()
+                                print(f"✅ A tupla possui {quantidade_elementos_tupla} ocorrências do elemento {ocorrencias_tupla.title()}.")
 
                         elif ocorrencias_tupla == None:    
                             limpar_tela()
@@ -265,9 +271,27 @@ class Menu:
                             limpar_tela()
                             print("❌ Entrada inválida!") 
 
-
+                    # Condicional da tupla - Pesquisar índice dos elementos.
                     elif opcoes_tupla == "3": 
-                        pass                
+                        pesquisa_nome_tupla = input("DIGITE UM NOME: ")
+
+                        if pesquisa_nome_tupla.replace(" ", "").isalpha():
+                            if not pesquisa_nome_tupla in tupla.iterar_tupla():
+                                limpar_tela()
+                                print(f"⚠️  Não há ocorrência do elemento {pesquisa_nome_tupla.title()}.")
+                            else:    
+                                limpar_tela()
+                                print(f"✅ A primeira ocorrência do elemento {pesquisa_nome_tupla.title()} está no índice {tupla.buscar_indice(pesquisa_nome_tupla)}.")
+
+                        elif pesquisa_nome_tupla == None:  
+                            limpar_tela()  
+                            print("❌ Entrada inválida!") 
+
+                        else:
+                            limpar_tela()
+                            print("❌ Entrada inválida!") 
+
+
                     elif opcoes_tupla == "4": 
                         pass                
                     elif opcoes_tupla == "5": 
