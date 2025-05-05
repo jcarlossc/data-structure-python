@@ -191,9 +191,9 @@ class Menu:
                         contar_elemento_lista = input("DIGITE O NOME: ")
 
                         if contar_elemento_lista.replace(" ", "").isalpha():
-                            quantidade_elementos = lista.quantidade_ocorrencias(contar_elemento_lista)
+                            quantidade_elementos_lista = lista.quantidade_ocorrencias(contar_elemento_lista)
                             limpar_tela()
-                            print("✅ A lista possui", quantidade_elementos, "elementos do tipo", contar_elemento_lista,".")  
+                            print("✅ A lista possui", quantidade_elementos_lista, "elementos do tipo", contar_elemento_lista,".")  
 
                         elif contar_elemento_lista == None:
                             limpar_tela()
@@ -250,7 +250,20 @@ class Menu:
                                 print("👤", itens.title()) 
 
                     elif opcoes_tupla == "2": 
-                        pass
+                        ocorrencias_tupla = input("DIGITE UM NOME: ")
+
+                        if ocorrencias_tupla.replace(" ", "").isalpha():
+                            quantidade_elementos_tupla = tupla.contar_ocorrencias(ocorrencias_tupla)
+                            limpar_tela()
+                            print("✅ A tupla possui", quantidade_elementos_tupla, "ocorrências do elemento", ocorrencias_tupla.title(),".")
+
+                        elif ocorrencias_tupla == None:    
+                            limpar_tela()
+                            print("❌ Entrada inválida!") 
+
+                        else:
+                            limpar_tela()
+                            print("❌ Entrada inválida!") 
 
 
                     elif opcoes_tupla == "3": 
