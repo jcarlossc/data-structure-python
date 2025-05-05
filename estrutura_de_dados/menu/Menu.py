@@ -296,8 +296,12 @@ class Menu:
                         limpar_tela()
                         print(f"✅ Existem {tupla.quantidade()} elementos na tupla.")
 
+                    # Condicional da tupla - Pesquisa por elementos em ordem alfabética.
                     elif opcoes_tupla == "5": 
-                        pass                
+                        ordem_minima = tupla.ordem_minima()
+                        limpar_tela()
+                        print(f"✅ {ordem_minima.title()} é a primeira ocorrência do primeiro elemento em ordem alfabética.")
+
                     elif opcoes_tupla == "6": 
                         pass                
                     elif opcoes_tupla == "7": 

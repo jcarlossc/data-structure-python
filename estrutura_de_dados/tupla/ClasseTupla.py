@@ -14,8 +14,8 @@ class ClasseTupla:
     def quantidade(self):
         return len(self.tupla)
     
-    def maximo(self):
+    def ordem_maxima(self):
         return max(self.tupla)
     
-    def minimo(self):
+    def ordem_minima(self):
         return min(self.tupla)
