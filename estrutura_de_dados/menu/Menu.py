@@ -47,6 +47,7 @@ class Menu:
             print("7 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")    
 
+
         # Instâncias das classes das estruturas de dados.
         lista = ClasseLista()
         tupla = ClasseTupla()
@@ -77,15 +78,15 @@ class Menu:
                         limpar_tela()
                         if not lista.iterar_lista():
                             limpar_tela()
-                            print("⚠️  Lista vazia")
+                            print(f"⚠️  Lista vazia")
 
                         elif opcoes_lista == None:
                             limpar_tela()
-                            print("❌ Entrada inválida!")
+                            print(f"❌ Entrada inválida!")
 
                         else:   
                             for itens in lista.iterar_lista():
-                                print("👤", itens.title()) 
+                                print(f"👤 {itens.title()}") 
 
                     # Condicional da lista - Adicionar elementos.
                     elif opcoes_lista == "2":
@@ -96,15 +97,15 @@ class Menu:
                         if elemento_adicionar_lista.replace(" ", "").isalpha():
                             lista.adicionar_na_lista(elemento_adicionar_lista)
                             limpar_tela()
-                            print("✅ Adicionado com sucesso!")
+                            print(f"✅ Adicionado com sucesso!")
                             
                         elif elemento_adicionar_lista == None:    
                             limpar_tela()
-                            print("❌ Entrada inválida!") 
+                            print(f"❌ Entrada inválida!") 
 
                         else:
                             limpar_tela()
-                            print("❌ Entrada inválida!")  
+                            print(f"❌ Entrada inválida!")  
 
                     # Condicional da lista - Adicionar elementos com posição(index)
                     elif opcoes_lista == "3":
@@ -117,15 +118,15 @@ class Menu:
                             numero_lista = int(posicao_lista)
                             lista.inserir_com_posicao(numero_lista, elemento_inserir_lista) 
                             limpar_tela()
-                            print("✅ Inserido com sucesso!")
+                            print(f"✅ Inserido com sucesso!")
 
                         elif posicao_lista == None or elemento_inserir_lista == None:
                             limpar_tela()
-                            print("❌ Entrada inválida!")       
+                            print(f"❌ Entrada inválida!")       
 
                         else:
                             limpar_tela()
-                            print("❌ Entrada inválida!")   
+                            print(f"❌ Entrada inválida!")   
                                 
                     # Condicional da lista - Pesquisar elementos.
                     elif opcoes_lista == "4":
@@ -135,25 +136,25 @@ class Menu:
 
                         if not lista.iterar_lista():
                             limpar_tela()
-                            print("⚠️  Lista vazia")
+                            print(f"⚠️  Lista vazia")
 
                         elif elemento_pesquisar_lista.replace(" ", "").isalpha(): 
                             limpar_tela()
                             lista.pesquisar_por_letras(elemento_pesquisar_lista)
                             for itens in lista.estrutura_sublista:  
-                                print("👤", itens.title())  
+                                print(f"👤 {itens.title()}")  
                             if not lista.sublistar():
                                 limpar_tela()
-                                print("⚠️  Não encontrado!")        
+                                print(f"⚠️  Não encontrado!")        
                             lista.estrutura_sublista.clear()   
   
                         elif elemento_pesquisar_lista == None:  
                             limpar_tela()
-                            print("❌ Entrada inválida!") 
+                            print(f"❌ Entrada inválida!") 
 
                         else:
                             limpar_tela()
-                            print("❌ Entrada inválida!")  
+                            print(f"❌ Entrada inválida!")  
 
                     # Condicional da lista - Excluir elementos.
                     elif opcoes_lista == "5":
@@ -163,22 +164,22 @@ class Menu:
 
                         if not lista.iterar_lista():
                             limpar_tela()
-                            print("⚠️  Lista vazia")
+                            print(f"⚠️  Lista vazia")
                  
                         elif elemento_excluir_lista == None:   
                             limpar_tela() 
-                            print("❌ Entrada inválida!")   
+                            print(f"❌ Entrada inválida!")   
 
                         elif elemento_excluir_lista.replace(" ", "").isalpha():
 
                             if elemento_excluir_lista.lower() not in lista.iterar_lista():
                                 limpar_tela()
-                                print("⚠️ ", elemento_excluir_lista, "não está na lista.") 
+                                print(f"⚠️  {elemento_excluir_lista.title()} não está na lista.") 
 
                             else: 
                                 lista.excluir_da_lista(elemento_excluir_lista)
                                 limpar_tela()
-                                print("✅ Excluído com sucesso!")
+                                print(f"✅ Excluído com sucesso!")
 
                         else:
                             limpar_tela()
@@ -192,27 +193,31 @@ class Menu:
 
                         if contar_elemento_lista.replace(" ", "").isalpha():
                             quantidade_elementos_lista = lista.quantidade_ocorrencias(contar_elemento_lista)
-                            limpar_tela()
-                            print("✅ A lista possui", quantidade_elementos_lista, "elementos do tipo", contar_elemento_lista,".")  
+                            if not contar_elemento_lista in lista.iterar_lista():
+                                limpar_tela()
+                                print(f"⚠️  A lista possui {quantidade_elementos_lista} elementos do tipo {contar_elemento_lista.title()}.")  
+                            else:
+                                limpar_tela()
+                                print(f"✅ A lista possui {quantidade_elementos_lista} elementos do tipo {contar_elemento_lista.title()}.")  
 
                         elif contar_elemento_lista == None:
                             limpar_tela()
-                            print("❌ Entrada inválida!")      
+                            print(f"❌ Entrada inválida!")      
 
                         else:   
                             limpar_tela()
-                            print("❌ Entrada inválida!")
+                            print(f"❌ Entrada inválida!")
 
                     # Condicional da lista - Limpar lista.
                     elif opcoes_lista == "7":
                         if not lista.iterar_lista():
                             limpar_tela()
-                            print("⚠️  Lista vazia")  
+                            print(f"⚠️  Lista vazia")  
 
                         else:   
                             lista.limpar_lista()
                             limpar_tela()
-                            print("✅ Lista Limpa!")
+                            print(f"✅ Lista Limpa!")
 
                     # Condicional da lista - Sai do while.
                     elif opcoes_lista == "8":
@@ -220,7 +225,7 @@ class Menu:
 
                     else:
                         limpar_tela()
-                        print("❌ Opção inválida.")
+                        print(f"❌ Opção inválida.")
 
                 limpar_tela()              
 
@@ -265,11 +270,11 @@ class Menu:
 
                         elif ocorrencias_tupla == None:    
                             limpar_tela()
-                            print("❌ Entrada inválida!") 
+                            print(f"❌ Entrada inválida!") 
 
                         else:
                             limpar_tela()
-                            print("❌ Entrada inválida!") 
+                            print(f"❌ Entrada inválida!") 
 
                     # Condicional da tupla - Pesquisar índice dos elementos.
                     elif opcoes_tupla == "3": 
@@ -285,11 +290,11 @@ class Menu:
 
                         elif pesquisa_nome_tupla == None:  
                             limpar_tela()  
-                            print("❌ Entrada inválida!") 
+                            print(f"❌ Entrada inválida!") 
 
                         else:
                             limpar_tela()
-                            print("❌ Entrada inválida!") 
+                            print(f"❌ Entrada inválida!") 
 
                     # Condicional da tupla - Pesquisar quantidade de elementos.
                     elif opcoes_tupla == "4": 
@@ -314,7 +319,7 @@ class Menu:
 
                     else:
                         limpar_tela()
-                        print("❌ Opção inválida.")
+                        print(f"❌ Opção inválida.")
 
                 limpar_tela()         
 
