@@ -2,6 +2,7 @@ import os
 from estrutura_de_dados.conjunto.ClasseConjunto import ClasseConjunto
 from estrutura_de_dados.lista.ClasseLista import ClasseLista
 from estrutura_de_dados.tupla.ClasseTupla import ClasseTupla
+from estrutura_de_dados.conjuntocongelado.ClasseFrozenset import ClasseFrozenset
 
 class Menu:
     def __init__(self):
@@ -62,10 +63,21 @@ class Menu:
             print("8 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")  
 
+        def menu_conjunto_frozen():
+            print("\n------------------------------- FROZENSET -------------------------------")
+            print("1 - LISTAR")
+            print("2 - UNIÃO")
+            print("3 - INTERSEÇÃO")
+            print("4 - DIFERENÇA")
+            print("5 - COPIAR")
+            print("6 - SAIR")
+            print("---------------------------------- FIM ----------------------------------\n")      
+
         # Instâncias das classes das estruturas de dados.
         lista = ClasseLista()
         tupla = ClasseTupla()
         conjunto = ClasseConjunto()
+        conjunto_frozen = ClasseFrozenset()
 
         # Método para limpar tela.
         def limpar_tela():
@@ -382,6 +394,7 @@ class Menu:
                             limpar_tela()
                             print(f"❌ Entrada inválida!")  
 
+                    # Condicional do conjunto(set) - Exclui elementos.
                     elif opcoes_conjunto == "3":   
                         elemento_excluir_conjunto = input("EXCLUIR NOME: ")
                         
@@ -407,6 +420,7 @@ class Menu:
                             limpar_tela()
                             print(f"❌ Entrada inválida!")
 
+                    # Condicional do conjunto(set) - Exclui elementos aleatórios.
                     elif opcoes_conjunto == "4":   
                         if not conjunto.iterar_conjunto():
                             limpar_tela()
@@ -416,6 +430,7 @@ class Menu:
                             limpar_tela()
                             print(f"✅ Excluído com sucesso!")
 
+                    # Condicional do conjunto(set) - União de elementos.
                     elif opcoes_conjunto == "5":   
                         if not conjunto.iterar_conjunto():
                             limpar_tela()
@@ -427,6 +442,7 @@ class Menu:
                             print(f"✅ Subconjunto para teste: {conjunto.conjunto_suporte}")
                             print(f"✅ União dos conjuntos: {conjunto.uniao()}")
 
+                    # Condicional do conjunto(set) - Interseção de elementos.
                     elif opcoes_conjunto == "6":   
                         if not conjunto.iterar_conjunto():
                             print(f"⚠️  Lista vazia")
@@ -437,6 +453,7 @@ class Menu:
                             print(f"✅ Subconjunto para teste: {conjunto.conjunto_suporte}")
                             print(f"✅ interseção dos conjuntos: {conjunto.intersecao()}")
 
+                    # Condicional do conjunto(set) - Diferença de elementos.
                     elif opcoes_conjunto == "7":   
                         if not conjunto.iterar_conjunto():
                             print(f"⚠️  Lista vazia")
@@ -457,7 +474,81 @@ class Menu:
                 limpar_tela()       
 
             elif tipo_estrutura == "4":
-                pass
+                limpar_tela()
+
+                # While do conjunto congelado(frozenset)
+                while True:
+                    menu_conjunto_frozen()
+                    opcoes_conjunto_frozen = input("ESCOLHA A OPERAÇÃO: ")
+
+                    if opcoes_conjunto_frozen == "1":
+                        limpar_tela()
+                        menu_lista()
+
+                        if not conjunto_frozen.iterar_conjunto():
+                            limpar_tela()
+                            print(f"⚠️  Lista vazia")
+
+                        elif opcoes_conjunto_frozen == None:
+                            limpar_tela()
+                            print(f"❌ Entrada inválida!")     
+
+                        else:   
+                            limpar_tela()
+                            for itens in conjunto_frozen.iterar_conjunto():
+                                 print(f"👤 {itens.title()}") 
+
+                    elif opcoes_conjunto_frozen == "2": 
+                        if not conjunto_frozen.iterar_conjunto():
+                            limpar_tela()
+                            print(f"⚠️  Lista vazia")
+
+                        else:
+                            limpar_tela()
+                            print(f"✅ Conjunto: {conjunto_frozen.iterar_conjunto()}")
+                            print(f"✅ Subconjunto para teste: {conjunto_frozen.conjunto_frozen_suporte}")
+                            print(f"✅ União dos conjuntos: {conjunto_frozen.uniao()}")
+
+                    elif opcoes_conjunto_frozen == "3": 
+                        if not conjunto_frozen.iterar_conjunto():
+                            limpar_tela()
+                            print(f"⚠️  Lista vazia")
+
+                        else:
+                            limpar_tela()
+                            print(f"✅ Conjunto: {conjunto_frozen.iterar_conjunto()}")
+                            print(f"✅ Subconjunto para teste: {conjunto_frozen.conjunto_frozen_suporte}")
+                            print(f"✅ Interseção dos conjuntos: {conjunto_frozen.intersecao()}")
+
+                    elif opcoes_conjunto_frozen == "4": 
+                        if not conjunto_frozen.iterar_conjunto():
+                            limpar_tela()
+                            print(f"⚠️  Lista vazia")
+
+                        else:
+                            limpar_tela()
+                            print(f"✅ Conjunto: {conjunto_frozen.iterar_conjunto()}")
+                            print(f"✅ Subconjunto para teste: {conjunto_frozen.conjunto_frozen_suporte}")
+                            print(f"✅ Diferença dos conjuntos: {conjunto_frozen.diferenca()}")
+
+                    elif opcoes_conjunto_frozen == "5": 
+                        if not conjunto_frozen.iterar_conjunto():
+                            print(f"⚠️  Lista vazia")
+
+                        else:
+                            limpar_tela()
+                            print(f"✅ Conjunto: {conjunto_frozen.iterar_conjunto()}")  
+                            print(f"✅ Conjunto copiado: {conjunto_frozen.copiar()}")
+
+                    elif opcoes_conjunto_frozen == "6": 
+                        break
+
+                    else:
+                        limpar_tela()
+                        print(f"❌ Opção inválida.")
+
+                limpar_tela()       
+        
             elif tipo_estrutura == "5":
                 pass
             elif tipo_estrutura == "6":
