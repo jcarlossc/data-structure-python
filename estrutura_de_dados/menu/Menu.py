@@ -408,7 +408,14 @@ class Menu:
                             print(f"❌ Entrada inválida!")
 
                     elif opcoes_conjunto == "4":   
-                        pass         
+                        if not conjunto.iterar_conjunto():
+                            limpar_tela()
+                            print(f"⚠️  Lista vazia")
+                        else:   
+                            conjunto.excluir_aleatorio()
+                            limpar_tela()
+                            print(f"✅ Excluído com sucesso!")
+
                     elif opcoes_conjunto == "5":   
                         pass         
                     elif opcoes_conjunto == "6":   
