@@ -510,9 +510,19 @@ class Menu:
                             print(f"✅ União dos conjuntos: {conjunto_frozen.uniao()}")
 
                     elif opcoes_conjunto_frozen == "3": 
-                        pass            
+                        if not conjunto_frozen.iterar_conjunto():
+                            limpar_tela()
+                            print(f"⚠️  Lista vazia")
+
+                        else:
+                            limpar_tela()
+                            print(f"✅ Conjunto: {conjunto_frozen.iterar_conjunto()}")
+                            print(f"✅ Subconjunto para teste: {conjunto_frozen.conjunto_frozen_suporte}")
+                            print(f"✅ Interseção dos conjuntos: {conjunto_frozen.intersecao()}")
+
                     elif opcoes_conjunto_frozen == "4": 
-                        pass            
+                        pass
+
                     elif opcoes_conjunto_frozen == "5": 
                         pass            
                     elif opcoes_conjunto_frozen == "6": 
