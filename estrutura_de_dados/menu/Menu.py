@@ -423,14 +423,30 @@ class Menu:
 
                         else:
                             limpar_tela()
-                            print("✅ Conjunto criado:", conjunto.iterar_conjunto())
-                            print("✅ Subconjunto para teste:", conjunto.conjunto_suporte)
-                            print("✅ União dos conjuntos:", conjunto.uniao())
+                            print(f"✅ Conjunto criado: {conjunto.iterar_conjunto()}")
+                            print(f"✅ Subconjunto para teste: {conjunto.conjunto_suporte}")
+                            print(f"✅ União dos conjuntos: {conjunto.uniao()}")
 
                     elif opcoes_conjunto == "6":   
-                        pass         
+                        if not conjunto.iterar_conjunto():
+                            print(f"⚠️  Lista vazia")
+
+                        else:
+                            limpar_tela()
+                            print(f"✅ Conjunto criado: {conjunto.iterar_conjunto()}")
+                            print(f"✅ Subconjunto para teste: {conjunto.conjunto_suporte}")
+                            print(f"✅ interseção dos conjuntos: {conjunto.intersecao()}")
+
                     elif opcoes_conjunto == "7":   
-                        pass         
+                        if not conjunto.iterar_conjunto():
+                            print(f"⚠️  Lista vazia")
+
+                        else:
+                            limpar_tela()
+                            print(f"✅ Conjunto criado: {conjunto.iterar_conjunto()}")
+                            print(f"✅ Subconjunto para teste: {conjunto.conjunto_suporte}")
+                            print(f"✅ Diferença dos conjuntos:", conjunto.diferenca())
+
                     elif opcoes_conjunto == "8":   
                         break
 

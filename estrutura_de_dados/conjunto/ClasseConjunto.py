@@ -1,7 +1,7 @@
 class ClasseConjunto:
     def __init__(self):
         self.conjunto = set()
-        self.conjunto_suporte = set(('jeck da costa', 'duda soares', 'zeck soares'))
+        self.conjunto_suporte = set(('jeck da costa', 'duda soares', 'jose carlos'))
 
     def iterar_conjunto(self):
         return self.conjunto    
