@@ -64,6 +64,7 @@ class Menu:
             print("8 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")  
 
+        # Método menu do conjunto(frozenset).
         def menu_conjunto_frozen():
             print("\n------------------------------- FROZENSET -------------------------------")
             print("1 - LISTAR")
@@ -139,10 +140,6 @@ class Menu:
                             limpar_tela()
                             print(f"✅ Adicionado com sucesso!")
                             
-                        elif elemento_adicionar_lista == None:    
-                            limpar_tela()
-                            print(f"❌ Entrada inválida!") 
-
                         else:
                             limpar_tela()
                             print(f"❌ Entrada inválida!")  
@@ -159,10 +156,6 @@ class Menu:
                             lista.inserir_com_posicao(numero_lista, elemento_inserir_lista) 
                             limpar_tela()
                             print(f"✅ Inserido com sucesso!")
-
-                        elif posicao_lista == None or elemento_inserir_lista == None:
-                            limpar_tela()
-                            print(f"❌ Entrada inválida!")       
 
                         else:
                             limpar_tela()
@@ -188,10 +181,6 @@ class Menu:
                                 print(f"⚠️  Não encontrado!")        
                             lista.estrutura_sublista.clear()   
   
-                        elif elemento_pesquisar_lista == None:  
-                            limpar_tela()
-                            print(f"❌ Entrada inválida!") 
-
                         else:
                             limpar_tela()
                             print(f"❌ Entrada inválida!")  
@@ -206,12 +195,7 @@ class Menu:
                             limpar_tela()
                             print(f"⚠️  Lista vazia")
                  
-                        elif elemento_excluir_lista == None:   
-                            limpar_tela() 
-                            print(f"❌ Entrada inválida!")   
-
                         elif elemento_excluir_lista.replace(" ", "").isalpha():
-
                             if elemento_excluir_lista.lower() not in lista.iterar_lista():
                                 limpar_tela()
                                 print(f"⚠️  {elemento_excluir_lista.title()} não está na lista.") 
@@ -239,11 +223,7 @@ class Menu:
                             else:
                                 limpar_tela()
                                 print(f"✅ A lista possui {quantidade_elementos_lista} elementos do tipo {contar_elemento_lista.title()}.")  
-
-                        elif contar_elemento_lista == None:
-                            limpar_tela()
-                            print(f"❌ Entrada inválida!")      
-
+     
                         else:   
                             limpar_tela()
                             print(f"❌ Entrada inválida!")
@@ -296,6 +276,8 @@ class Menu:
 
                     # Condicional da tupla - Pesquisar ocorrências dos elementos.
                     elif opcoes_tupla == "2": 
+                        limpar_tela()
+                        menu_lista()
                         ocorrencias_tupla = input("DIGITE UM NOME: ")
 
                         if ocorrencias_tupla.replace(" ", "").isalpha():
@@ -308,16 +290,14 @@ class Menu:
                                 limpar_tela()
                                 print(f"✅ A tupla possui {quantidade_elementos_tupla} ocorrências do elemento {ocorrencias_tupla.title()}.")
 
-                        elif ocorrencias_tupla == None:    
-                            limpar_tela()
-                            print(f"❌ Entrada inválida!") 
-
                         else:
                             limpar_tela()
                             print(f"❌ Entrada inválida!") 
 
                     # Condicional da tupla - Pesquisar índice dos elementos.
                     elif opcoes_tupla == "3": 
+                        limpar_tela()
+                        menu_lista()
                         pesquisa_nome_tupla = input("DIGITE UM NOME: ")
 
                         if pesquisa_nome_tupla.replace(" ", "").isalpha():
@@ -327,10 +307,6 @@ class Menu:
                             else:    
                                 limpar_tela()
                                 print(f"✅ A primeira ocorrência do elemento {pesquisa_nome_tupla.title()} está no índice {tupla.buscar_indice(pesquisa_nome_tupla)}.")
-
-                        elif pesquisa_nome_tupla == None:  
-                            limpar_tela()  
-                            print(f"❌ Entrada inválida!") 
 
                         else:
                             limpar_tela()
@@ -398,17 +374,15 @@ class Menu:
                                 conjunto.adicionar(elemento_adicionar_conjunto)
                                 limpar_tela()
                                 print(f"✅ Adicionado com sucesso!")  
-                                        
-                        elif elemento_adicionar_conjunto == None:  
-                            limpar_tela()  
-                            print(f"❌ Entrada inválida!") 
 
                         else:
                             limpar_tela()
                             print(f"❌ Entrada inválida!")  
 
                     # Condicional do conjunto(set) - Exclui elementos.
-                    elif opcoes_conjunto == "3":   
+                    elif opcoes_conjunto == "3":  
+                        limpar_tela()
+                        menu_lista()
                         elemento_excluir_conjunto = input("EXCLUIR NOME: ")
                         
                         if not conjunto.iterar_conjunto():
@@ -424,10 +398,6 @@ class Menu:
                                 conjunto.excluir(elemento_excluir_conjunto)
                                 limpar_tela()
                                 print(f"✅ Excluído com sucesso!")
-                            
-                        elif elemento_excluir_conjunto == None:  
-                            limpar_tela()  
-                            print(f"❌ Entrada inválida!") 
 
                         else:
                             limpar_tela()
@@ -591,7 +561,21 @@ class Menu:
                                 print(f"👤 {chave}: {valor}")
 
                     elif opcoes_dicionario == "2":
-                        pass            
+                        limpar_tela()
+                        menu_lista()
+                        nome_dicionario = input("ADICIONAR NOME: ")
+                        idade_dicionario = input("ADICIONAR IDADE: ")
+
+                        if nome_dicionario.replace(" ", "").isalpha() and idade_dicionario.isdigit():
+                            numero_dicionario = int(idade_dicionario)
+                            dicionario.adicionar(nome_dicionario, numero_dicionario)
+                            limpar_tela()
+                            print(f"✅ Adicionado com sucesso!")
+
+                        else:
+                            limpar_tela()
+                            print(f"❌ Entrada inválida!")   
+
                     elif opcoes_dicionario == "3":
                         pass            
                     elif opcoes_dicionario == "4":
@@ -601,9 +585,8 @@ class Menu:
                     elif opcoes_dicionario == "6":
                         pass            
                     elif opcoes_dicionario == "7":
-                        pass            
-                    elif opcoes_dicionario == "8":
-                        pass   
+                        break          
+  
                     else:
                         limpar_tela()
                         print(f"❌ Opção inválida.")

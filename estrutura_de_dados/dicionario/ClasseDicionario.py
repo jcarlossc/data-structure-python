@@ -9,7 +9,7 @@ class ClasseDicionario:
     def iterar_dicionario(self):
         return self.dicionario.items()
     
-    def buscar(self, id):
+    def pesquisar(self, id):
         return self.dicionario.get(id)
     
     def copiar(self):
