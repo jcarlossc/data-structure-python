@@ -408,13 +408,45 @@ class Menu:
                             print(f"❌ Entrada inválida!")
 
                     elif opcoes_conjunto == "4":   
-                        pass         
+                        if not conjunto.iterar_conjunto():
+                            limpar_tela()
+                            print(f"⚠️  Lista vazia")
+                        else:   
+                            conjunto.excluir_aleatorio()
+                            limpar_tela()
+                            print(f"✅ Excluído com sucesso!")
+
                     elif opcoes_conjunto == "5":   
-                        pass         
+                        if not conjunto.iterar_conjunto():
+                            limpar_tela()
+                            print(f"⚠️  Lista vazia")
+
+                        else:
+                            limpar_tela()
+                            print(f"✅ Conjunto criado: {conjunto.iterar_conjunto()}")
+                            print(f"✅ Subconjunto para teste: {conjunto.conjunto_suporte}")
+                            print(f"✅ União dos conjuntos: {conjunto.uniao()}")
+
                     elif opcoes_conjunto == "6":   
-                        pass         
+                        if not conjunto.iterar_conjunto():
+                            print(f"⚠️  Lista vazia")
+
+                        else:
+                            limpar_tela()
+                            print(f"✅ Conjunto criado: {conjunto.iterar_conjunto()}")
+                            print(f"✅ Subconjunto para teste: {conjunto.conjunto_suporte}")
+                            print(f"✅ interseção dos conjuntos: {conjunto.intersecao()}")
+
                     elif opcoes_conjunto == "7":   
-                        pass         
+                        if not conjunto.iterar_conjunto():
+                            print(f"⚠️  Lista vazia")
+
+                        else:
+                            limpar_tela()
+                            print(f"✅ Conjunto criado: {conjunto.iterar_conjunto()}")
+                            print(f"✅ Subconjunto para teste: {conjunto.conjunto_suporte}")
+                            print(f"✅ Diferença dos conjuntos:", conjunto.diferenca())
+
                     elif opcoes_conjunto == "8":   
                         break
 
