@@ -417,7 +417,16 @@ class Menu:
                             print(f"✅ Excluído com sucesso!")
 
                     elif opcoes_conjunto == "5":   
-                        pass         
+                        if not conjunto.iterar_conjunto():
+                            limpar_tela()
+                            print(f"⚠️  Lista vazia")
+
+                        else:
+                            limpar_tela()
+                            print("✅ Conjunto criado:", conjunto.iterar_conjunto())
+                            print("✅ Subconjunto para teste:", conjunto.conjunto_suporte)
+                            print("✅ União dos conjuntos:", conjunto.uniao())
+
                     elif opcoes_conjunto == "6":   
                         pass         
                     elif opcoes_conjunto == "7":   
