@@ -532,7 +532,14 @@ class Menu:
                             print(f"✅ Diferença dos conjuntos: {conjunto_frozen.diferenca()}")
 
                     elif opcoes_conjunto_frozen == "5": 
-                        pass            
+                        if not conjunto_frozen.iterar_conjunto():
+                            print(f"⚠️  Lista vazia")
+
+                        else:
+                            limpar_tela()
+                            print(f"✅ Conjunto: {conjunto_frozen.iterar_conjunto()}")  
+                            print(f"✅ Conjunto copiado: {conjunto_frozen.copiar()}")
+
                     elif opcoes_conjunto_frozen == "6": 
                         break
 
