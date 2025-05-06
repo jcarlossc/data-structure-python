@@ -499,7 +499,15 @@ class Menu:
                                  print(f"👤 {itens.title()}") 
 
                     elif opcoes_conjunto_frozen == "2": 
-                        pass
+                        if not conjunto_frozen.iterar_conjunto():
+                            limpar_tela()
+                            print(f"⚠️  Lista vazia")
+
+                        else:
+                            limpar_tela()
+                            print(f"✅ Conjunto: {conjunto_frozen.iterar_conjunto()}")
+                            print(f"✅ Subconjunto para teste: {conjunto_frozen.conjunto_frozen_suporte}")
+                            print(f"✅ União dos conjuntos: {conjunto_frozen.uniao()}")
 
                     elif opcoes_conjunto_frozen == "3": 
                         pass            

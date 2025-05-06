@@ -1,7 +1,7 @@
 class ClasseFrozenset:
     def __init__(self):
         self.conjunto_frozen = frozenset(['carlos costa', 'maria teresa', 'jose carlos'])
-        self.conjunto_frozen_suporte = frozenset(['maria teresa', 'jeck soares', 'jose da costa'])
+        self.conjunto_frozen_suporte = frozenset(['maria teresa', 'jeck soares', 'jose carlos'])
 
     def iterar_conjunto(self):
         return self.conjunto_frozen    
