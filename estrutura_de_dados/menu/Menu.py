@@ -54,8 +54,8 @@ class Menu:
             print("\n-------------------------------- CONJUNTO -------------------------------")
             print("1 - LISTAR")
             print("2 - ADICIONAR")
-            print("3 - APAGAR")
-            print("4 - APAGAR ALEATÓRIO")
+            print("3 - EXCLUIR")
+            print("4 - EXCLUIR ALEATÓRIO")
             print("5 - UNIÃO")
             print("6 - INTERSEÇÃO")
             print("7 - DIFERENÇA")
@@ -383,7 +383,30 @@ class Menu:
                             print(f"❌ Entrada inválida!")  
 
                     elif opcoes_conjunto == "3":   
-                        pass         
+                        elemento_excluir_conjunto = input("EXCLUIR NOME: ")
+                        
+                        if not conjunto.iterar_conjunto():
+                            limpar_tela()
+                            print(f"⚠️  Lista vazia")
+
+                        elif elemento_excluir_conjunto.replace(" ", "").isalpha():
+                            if elemento_excluir_conjunto not in conjunto.iterar_conjunto():
+                                limpar_tela()
+                                print(f"⚠️  O elemento não está no conjunto!")  
+
+                            else:    
+                                conjunto.excluir(elemento_excluir_conjunto)
+                                limpar_tela()
+                                print(f"✅ Excluído com sucesso!")
+                            
+                        elif elemento_excluir_conjunto == None:  
+                            limpar_tela()  
+                            print(f"❌ Entrada inválida!") 
+
+                        else:
+                            limpar_tela()
+                            print(f"❌ Entrada inválida!")
+
                     elif opcoes_conjunto == "4":   
                         pass         
                     elif opcoes_conjunto == "5":   
