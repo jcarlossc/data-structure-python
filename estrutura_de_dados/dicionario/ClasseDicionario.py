@@ -9,13 +9,13 @@ class ClasseDicionario:
     def iterar_dicionario(self):
         return self.dicionario.items()
     
-    def buscar(self, id):
+    def pesquisar(self, id):
         return self.dicionario.get(id)
     
     def copiar(self):
         return self.dicionario.copy()
     
-    def remover(self, chave):
+    def excluir(self, chave):
         return self.dicionario.pop(chave)
     
     def limpar(self):
