@@ -670,11 +670,19 @@ class Menu:
 
                 # While do fila deque.
                 while True:
-                    menu_dicionario()
+                    menu_fila_deque()
                     opcoes_fila_deque = input("ESCOLHA A OPERAÇÃO: ")
 
                     if opcoes_fila_deque == "1":
-                        pass
+                        if not fila_deque.iterar_deque():
+                            limpar_tela()
+                            print(f"⚠️  Lista vazia")
+
+                        else:   
+                            limpar_tela()
+                            for item in fila_deque.iterar_deque():
+                                print(f"👤 {item}")
+
                     elif opcoes_fila_deque == "2":
                         pass
                     elif opcoes_fila_deque == "3":
