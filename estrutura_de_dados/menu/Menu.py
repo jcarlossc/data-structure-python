@@ -264,7 +264,7 @@ class Menu:
 
                 limpar_tela()              
 
-            # Condicional principal - Tupla.
+            # Condicional menu principal - Tupla.
             elif tipo_estrutura == "2":
                 limpar_tela()
 
@@ -354,6 +354,7 @@ class Menu:
 
                 limpar_tela()         
 
+            # Condicional menu principal - Set.
             elif tipo_estrutura == "3":
                 limpar_tela()
 
@@ -471,6 +472,7 @@ class Menu:
 
                 limpar_tela()       
 
+            # Condicional menu principal - FrozenSet.
             elif tipo_estrutura == "4":
                 limpar_tela()
 
@@ -552,6 +554,7 @@ class Menu:
 
                 limpar_tela()       
         
+            # Condicional menu principal - Dicionário.
             elif tipo_estrutura == "5":
                 limpar_tela()
 
@@ -664,15 +667,17 @@ class Menu:
                         print(f"❌ Opção inválida.")
 
                 limpar_tela()         
-
+            
+            # Condicional menu principal - Deque.
             elif tipo_estrutura == "6":
                 limpar_tela()
 
-                # While do fila deque.
+                # While do deque.
                 while True:
                     menu_fila_deque()
                     opcoes_fila_deque = input("ESCOLHA A OPERAÇÃO: ")
 
+                    # Condicional do deque - Iterar elementos.
                     if opcoes_fila_deque == "1":
                         if not fila_deque.iterar_deque():
                             limpar_tela()
@@ -683,8 +688,21 @@ class Menu:
                             for item in fila_deque.iterar_deque():
                                 print(f"👤 {item}")
 
+                    # Condicional do deque - Adicionar elementos.
                     elif opcoes_fila_deque == "2":
-                        pass
+                        limpar_tela()
+                        menu_lista()
+                        nome_fila_deque = input("DIGITE UM NOME: ")
+
+                        if nome_fila_deque.replace(" ", "").isalpha():
+                            limpar_tela()
+                            fila_deque.adicionar(nome_fila_deque)
+                            print(f"✅ Adicionado com sucesso!")
+
+                        else:
+                            limpar_tela()
+                            print(f"❌  Entrada inválida!")  
+
                     elif opcoes_fila_deque == "3":
                         pass
                     elif opcoes_fila_deque == "4":
