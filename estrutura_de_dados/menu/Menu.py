@@ -1,6 +1,7 @@
 import os
 from estrutura_de_dados.conjunto.ClasseConjunto import ClasseConjunto
 from estrutura_de_dados.dicionario.ClasseDicionario import ClasseDicionario
+from estrutura_de_dados.filadeque.ClasseFilaDeque import ClasseFilaDeque
 from estrutura_de_dados.lista.ClasseLista import ClasseLista
 from estrutura_de_dados.tupla.ClasseTupla import ClasseTupla
 from estrutura_de_dados.conjuntocongelado.ClasseFrozenset import ClasseFrozenset
@@ -75,6 +76,7 @@ class Menu:
             print("6 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")    
 
+        # Método menu do dicionário.
         def menu_dicionario():
             print("\n------------------------------- FROZENSET -------------------------------")
             print("1 - LISTAR")
@@ -84,14 +86,27 @@ class Menu:
             print("5 - EXCLUIR")
             print("6 - LIMPAR")
             print("7 - SAIR")
-            print("---------------------------------- FIM ----------------------------------\n")        
+            print("---------------------------------- FIM ----------------------------------\n")   
 
+        # Método menu do deque.
+        def menu_fila_deque():
+            print("\n-------------------------------- FILA_DEQUE -------------------------------")
+            print("1 - LISTAR")
+            print("2 - ADICIONAR")
+            print("3 - ADICIONA NO COMEÇO")
+            print("4 - REMOVER DO FIM")
+            print("5 - REMOVER DO COMEÇO")
+            print("6 - LIMPAR")
+            print("7 - SAIR")
+            print("---------------------------------- FIM ----------------------------------\n")      
+         
         # Instâncias das classes das estruturas de dados.
         lista = ClasseLista()
         tupla = ClasseTupla()
         conjunto = ClasseConjunto()
         conjunto_frozen = ClasseFrozenset()
         dicionario = ClasseDicionario()
+        fila_deque = ClasseFilaDeque()
 
         # Método para limpar tela.
         def limpar_tela():
@@ -651,7 +666,34 @@ class Menu:
                 limpar_tela()         
 
             elif tipo_estrutura == "6":
-                pass
+                limpar_tela()
+
+                # While do fila deque.
+                while True:
+                    menu_dicionario()
+                    opcoes_fila_deque = input("ESCOLHA A OPERAÇÃO: ")
+
+                    if opcoes_fila_deque == "1":
+                        pass
+                    elif opcoes_fila_deque == "2":
+                        pass
+                    elif opcoes_fila_deque == "3":
+                        pass
+                    elif opcoes_fila_deque == "4":
+                        pass
+                    elif opcoes_fila_deque == "5":
+                        pass
+                    elif opcoes_fila_deque == "6":
+                        pass
+                    elif opcoes_fila_deque == "7":
+                        break
+
+                    else:
+                        limpar_tela()
+                        print(f"❌ Opção inválida.")
+
+                limpar_tela() 
+
             elif tipo_estrutura == "7":
                 pass
             elif tipo_estrutura == "8":
