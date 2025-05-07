@@ -81,7 +81,7 @@ class Menu:
             print("2 - ADICIONAR")
             print("3 - BUSCA ELEMENTO")
             print("4 - COPIAR")
-            print("5 - REMOVER")
+            print("5 - EXCLUIR")
             print("6 - LIMPAR")
             print("7 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")        
@@ -609,8 +609,28 @@ class Menu:
                             print(f"✅ Dicionário: {dicionario.iterar_dicionario()}")  
                             print(f"✅ Dicionário copiado: {dicionario.copiar()}")   
 
+                    # Condicional do dicionário - Excluir elementos.
                     elif opcoes_dicionario == "5":
-                        pass            
+                        limpar_tela()
+                        menu_dicionario()
+                        numero_dicionario_excluir = input("DIGITE O IDENTIFICADOR: ")   
+                        
+                        if numero_dicionario_excluir.isdigit():
+                            dicionario_excluir = int(numero_dicionario_excluir) 
+
+                            if dicionario.pesquisar(dicionario_excluir) == None:
+                                limpar_tela()
+                                print(f"⚠️  Identificador não encontrado!")  
+
+                            else:  
+                                limpar_tela()
+                                print(f"✅ Excluído com sucesso! {dicionario.remover(dicionario_excluir)}")
+                            
+                        else:
+                            limpar_tela()
+                            print(f"❌  Entrada inválida!")  
+
+                    # Condicional do dicionário - Limpar dicionário.
                     elif opcoes_dicionario == "6":
                         pass            
                     elif opcoes_dicionario == "7":
