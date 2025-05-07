@@ -15,7 +15,7 @@ class ClasseDicionario:
     def copiar(self):
         return self.dicionario.copy()
     
-    def remover(self, chave):
+    def excluir(self, chave):
         return self.dicionario.pop(chave)
     
     def limpar(self):

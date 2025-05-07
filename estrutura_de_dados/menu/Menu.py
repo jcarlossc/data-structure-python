@@ -624,7 +624,7 @@ class Menu:
 
                             else:  
                                 limpar_tela()
-                                print(f"✅ Excluído com sucesso! {dicionario.remover(dicionario_excluir)}")
+                                print(f"✅ Excluído com sucesso! {dicionario.excluir(dicionario_excluir)}")
                             
                         else:
                             limpar_tela()
@@ -632,7 +632,15 @@ class Menu:
 
                     # Condicional do dicionário - Limpar dicionário.
                     elif opcoes_dicionario == "6":
-                        pass            
+                        if not dicionario.iterar_dicionario():
+                            limpar_tela()
+                            print(f"⚠️  Lista vazia")    
+
+                        else:
+                            limpar_tela()
+                            limpar_dicionario = dicionario.limpar()
+                            print(f"✅ Dicionário apagado com sucesso! {limpar_dicionario}")
+
                     elif opcoes_dicionario == "7":
                         break          
   
