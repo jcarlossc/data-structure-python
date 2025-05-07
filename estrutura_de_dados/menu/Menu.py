@@ -691,7 +691,7 @@ class Menu:
                     # Condicional do deque - Adicionar elementos.
                     elif opcoes_fila_deque == "2":
                         limpar_tela()
-                        menu_lista()
+                        menu_fila_deque()
                         nome_fila_deque = input("DIGITE UM NOME: ")
 
                         if nome_fila_deque.replace(" ", "").isalpha():
@@ -706,7 +706,7 @@ class Menu:
                     # Condicional do deque - Adicionar elemento no começo.
                     elif opcoes_fila_deque == "3":
                         limpar_tela()
-                        menu_lista()
+                        menu_fila_deque()
                         nome_fila_deque_comeco = input("DIGITE UM NOME: ")
 
                         if nome_fila_deque_comeco.replace(" ", "").isalpha():
@@ -743,8 +743,17 @@ class Menu:
                             limpar_tela()
                             print(f"✅ {fila_deque.remover_primeiro()} Removido com sucesso!")  
 
+                    # Condicional do deque - Limpar deque.  
                     elif opcoes_fila_deque == "6":
-                        pass
+                        if not fila_deque.iterar_deque():
+                            limpar_tela()
+                            print(f"⚠️  Deque vazio!")
+
+                        else:
+                            limpar_tela()
+                            fila_deque.limpar()
+                            print(f"✅ Deque limpo com sucesso!")  
+
                     elif opcoes_fila_deque == "7":
                         break
 
