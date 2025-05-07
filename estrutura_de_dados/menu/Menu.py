@@ -703,8 +703,21 @@ class Menu:
                             limpar_tela()
                             print(f"❌  Entrada inválida!")  
 
+                    # Condicional do deque - Adicionar elemento no começo.
                     elif opcoes_fila_deque == "3":
-                        pass
+                        limpar_tela()
+                        menu_lista()
+                        nome_fila_deque_comeco = input("DIGITE UM NOME: ")
+
+                        if nome_fila_deque_comeco.replace(" ", "").isalpha():
+                            limpar_tela()
+                            fila_deque.adiciona_comeco(nome_fila_deque_comeco)
+                            print(f"✅ Adicionado com sucesso!")
+
+                        else:
+                            limpar_tela()
+                            print(f"❌  Entrada inválida!") 
+                        
                     elif opcoes_fila_deque == "4":
                         pass
                     elif opcoes_fila_deque == "5":
