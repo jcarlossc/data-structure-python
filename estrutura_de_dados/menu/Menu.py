@@ -76,7 +76,7 @@ class Menu:
             print("---------------------------------- FIM ----------------------------------\n")    
 
         def menu_dicionario():
-            print("\n-------------------------------- CONJUNTO -------------------------------")
+            print("\n------------------------------- FROZENSET -------------------------------")
             print("1 - LISTAR")
             print("2 - ADICIONAR")
             print("3 - BUSCA ELEMENTO")
@@ -560,6 +560,7 @@ class Menu:
                             for chave, valor in dicionario.iterar_dicionario():
                                 print(f"👤 {chave}: {valor}")
 
+                    # Condicional do dicionário - Adicionar elementos.
                     elif opcoes_dicionario == "2":
                         limpar_tela()
                         menu_lista()
@@ -576,8 +577,27 @@ class Menu:
                             limpar_tela()
                             print(f"❌ Entrada inválida!")   
 
+                    # Condicional do dicionário - Pesquisar elementos por index.
                     elif opcoes_dicionario == "3":
-                        pass            
+                        limpar_tela()
+                        menu_dicionario()
+                        numero_id = input("DIGITE O IDENTIFICADOR: ")    
+                        
+                        if numero_id.isdigit():
+                            id_numero = int(numero_id)
+                            if dicionario.pesquisar(id_numero) == None:
+                                limpar_tela()
+                                print(f"⚠️  Identificador não encontrado!")  
+
+                            else:    
+                                resultado = dicionario.pesquisar(id_numero)
+                                limpar_tela() 
+                                print(f"👤 {resultado}")
+                        
+                        else:
+                            limpar_tela()
+                            print(f"❌ Entrada inválida!")  
+
                     elif opcoes_dicionario == "4":
                         pass            
                     elif opcoes_dicionario == "5":
