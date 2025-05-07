@@ -733,8 +733,16 @@ class Menu:
                             limpar_tela()
                             print(f"✅ {fila_deque.remove_fim()} Removido com sucesso!")  
 
+                    # Condicional do deque - Excluir elemento do começo.  
                     elif opcoes_fila_deque == "5":
-                        pass
+                        if not fila_deque.iterar_deque():
+                            limpar_tela()
+                            print(f"⚠️  Deque vazio!")
+
+                        else:
+                            limpar_tela()
+                            print(f"✅ {fila_deque.remover_primeiro()} Removido com sucesso!")  
+
                     elif opcoes_fila_deque == "6":
                         pass
                     elif opcoes_fila_deque == "7":
