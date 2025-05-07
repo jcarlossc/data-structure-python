@@ -370,7 +370,7 @@ class Menu:
                         
                         if not conjunto.iterar_conjunto():
                             limpar_tela()
-                            print(f"⚠️  Lista vazia")
+                            print(f"⚠️  Set vazio!")
                         else:   
                             limpar_tela()
                             for itens in conjunto.iterar_conjunto():
@@ -403,7 +403,7 @@ class Menu:
                         
                         if not conjunto.iterar_conjunto():
                             limpar_tela()
-                            print(f"⚠️  Lista vazia")
+                            print(f"⚠️  Set vazio!")
 
                         elif elemento_excluir_conjunto.replace(" ", "").isalpha():
                             if elemento_excluir_conjunto not in conjunto.iterar_conjunto():
@@ -423,7 +423,7 @@ class Menu:
                     elif opcoes_conjunto == "4":   
                         if not conjunto.iterar_conjunto():
                             limpar_tela()
-                            print(f"⚠️  Lista vazia")
+                            print(f"⚠️  Set vazio!")
                         else:   
                             conjunto.excluir_aleatorio()
                             limpar_tela()
@@ -433,7 +433,7 @@ class Menu:
                     elif opcoes_conjunto == "5":   
                         if not conjunto.iterar_conjunto():
                             limpar_tela()
-                            print(f"⚠️  Lista vazia")
+                            print(f"⚠️  Set vazio!")
 
                         else:
                             limpar_tela()
@@ -444,7 +444,7 @@ class Menu:
                     # Condicional do conjunto(set) - Interseção de elementos.
                     elif opcoes_conjunto == "6":   
                         if not conjunto.iterar_conjunto():
-                            print(f"⚠️  Lista vazia")
+                            print(f"⚠️  Set vazio!")
 
                         else:
                             limpar_tela()
@@ -455,7 +455,7 @@ class Menu:
                     # Condicional do conjunto(set) - Diferença de elementos.
                     elif opcoes_conjunto == "7":   
                         if not conjunto.iterar_conjunto():
-                            print(f"⚠️  Lista vazia")
+                            print(f"⚠️  Set vazio!")
 
                         else:
                             limpar_tela()
@@ -488,7 +488,7 @@ class Menu:
 
                         if not conjunto_frozen.iterar_conjunto():
                             limpar_tela()
-                            print(f"⚠️  Lista vazia")
+                            print(f"⚠️  Frozenset vazio!")
 
                         elif opcoes_conjunto_frozen == None:
                             limpar_tela()
@@ -503,7 +503,7 @@ class Menu:
                     elif opcoes_conjunto_frozen == "2": 
                         if not conjunto_frozen.iterar_conjunto():
                             limpar_tela()
-                            print(f"⚠️  Lista vazia")
+                            print(f"⚠️  Frozenset vazio!")
 
                         else:
                             limpar_tela()
@@ -515,7 +515,7 @@ class Menu:
                     elif opcoes_conjunto_frozen == "3": 
                         if not conjunto_frozen.iterar_conjunto():
                             limpar_tela()
-                            print(f"⚠️  Lista vazia")
+                            print(f"⚠️  Frozenset vazio!")
 
                         else:
                             limpar_tela()
@@ -527,7 +527,7 @@ class Menu:
                     elif opcoes_conjunto_frozen == "4": 
                         if not conjunto_frozen.iterar_conjunto():
                             limpar_tela()
-                            print(f"⚠️  Lista vazia")
+                            print(f"⚠️  Frozenset vazio1!")
 
                         else:
                             limpar_tela()
@@ -538,7 +538,7 @@ class Menu:
                     # Condicional do conjunto(frozenset) - Copiar elementos.
                     elif opcoes_conjunto_frozen == "5": 
                         if not conjunto_frozen.iterar_conjunto():
-                            print(f"⚠️  Lista vazia")
+                            print(f"⚠️  Frozenset vazio!")
 
                         else:
                             limpar_tela()
@@ -567,7 +567,7 @@ class Menu:
                     if opcoes_dicionario == "1":
                         limpar_tela()
                         if not dicionario.iterar_dicionario():
-                            print(f"⚠️  Lista vazia")
+                            print(f"⚠️  Dicionário vazio!")
 
                         elif opcoes_dicionario == None:
                             limpar_tela()
@@ -620,7 +620,7 @@ class Menu:
                     elif opcoes_dicionario == "4":
                         if not dicionario.iterar_dicionario():
                             limpar_tela()
-                            print(f"⚠️  Lista vazia")
+                            print(f"⚠️  Dicionário vazio!")
 
                         else:
                             limpar_tela()
@@ -652,7 +652,7 @@ class Menu:
                     elif opcoes_dicionario == "6":
                         if not dicionario.iterar_dicionario():
                             limpar_tela()
-                            print(f"⚠️  Lista vazia")    
+                            print(f"⚠️  Dicionário vazio!")    
 
                         else:
                             limpar_tela()
@@ -681,7 +681,7 @@ class Menu:
                     if opcoes_fila_deque == "1":
                         if not fila_deque.iterar_deque():
                             limpar_tela()
-                            print(f"⚠️  Lista vazia")
+                            print(f"⚠️  Deque vazio!")
 
                         else:   
                             limpar_tela()
@@ -710,16 +710,29 @@ class Menu:
                         nome_fila_deque_comeco = input("DIGITE UM NOME: ")
 
                         if nome_fila_deque_comeco.replace(" ", "").isalpha():
-                            limpar_tela()
-                            fila_deque.adiciona_comeco(nome_fila_deque_comeco)
-                            print(f"✅ Adicionado com sucesso!")
+                            if not fila_deque.iterar_deque():
+                                limpar_tela()
+                                print(f"⚠️  Deque vazio")
+
+                            else:    
+                                limpar_tela()
+                                fila_deque.adiciona_comeco(nome_fila_deque_comeco)
+                                print(f"✅ Adicionado com sucesso!")
 
                         else:
                             limpar_tela()
                             print(f"❌  Entrada inválida!") 
                         
+                    # Condicional do deque - Excluir elemento do fim.    
                     elif opcoes_fila_deque == "4":
-                        pass
+                        if not fila_deque.iterar_deque():
+                            limpar_tela()
+                            print(f"⚠️  Deque vazio!")
+
+                        else:
+                            limpar_tela()
+                            print(f"✅ {fila_deque.remove_fim()} Removido com sucesso!")  
+
                     elif opcoes_fila_deque == "5":
                         pass
                     elif opcoes_fila_deque == "6":
