@@ -598,8 +598,17 @@ class Menu:
                             limpar_tela()
                             print(f"❌ Entrada inválida!")  
 
+                    # Condicional do dicionário - Copiar elementos.
                     elif opcoes_dicionario == "4":
-                        pass            
+                        if not dicionario.iterar_dicionario():
+                            limpar_tela()
+                            print(f"⚠️  Lista vazia")
+
+                        else:
+                            limpar_tela()
+                            print(f"✅ Dicionário: {dicionario.iterar_dicionario()}")  
+                            print(f"✅ Dicionário copiado: {dicionario.copiar()}")   
+
                     elif opcoes_dicionario == "5":
                         pass            
                     elif opcoes_dicionario == "6":
