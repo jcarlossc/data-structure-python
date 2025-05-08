@@ -808,9 +808,9 @@ class Menu:
                                 fila_queue.fila_queue.put(item)
 
                     # Condicional do Queue - Adicionar elementos.
-                    elif opcoes_fila_queue == "2": 
+                    elif opcoes_fila_queue == "2":
+                        limpar_tela() 
                         menu_fila_queue()
-                        limpar_tela()
                         elemento_fila_queue = input("DIGITE UM NOME: ")
 
                         if elemento_fila_queue.replace(" ", "").isalpha():
@@ -822,8 +822,17 @@ class Menu:
                             limpar_tela()
                             print(f"❌  Entrada inválida!")  
 
+                    # Condicional do Queue - Adicionar elementos.
                     elif opcoes_fila_queue == "3": 
-                        pass           
+                        if fila_queue.fila_queue.empty():
+                            limpar_tela()
+                            print(f"⚠️  Queue vazio!")
+
+                        else:   
+                            limpar_tela()
+                            print(f"✅ Quantidade de itens na Queue: {fila_queue.quantidade()}")  
+
+                    # Condicional do Queue - Verifica se a queue está cheia(caso tamanho definido).                
                     elif opcoes_fila_queue == "4": 
                         pass           
                     elif opcoes_fila_queue == "5": 
