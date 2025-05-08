@@ -2,6 +2,7 @@ import os
 from estrutura_de_dados.conjunto.ClasseConjunto import ClasseConjunto
 from estrutura_de_dados.dicionario.ClasseDicionario import ClasseDicionario
 from estrutura_de_dados.filadeque.ClasseFilaDeque import ClasseFilaDeque
+from estrutura_de_dados.filaqueue.ClasseFilaQueue import ClasseFilaQueue
 from estrutura_de_dados.lista.ClasseLista import ClasseLista
 from estrutura_de_dados.tupla.ClasseTupla import ClasseTupla
 from estrutura_de_dados.conjuntocongelado.ClasseFrozenset import ClasseFrozenset
@@ -99,6 +100,16 @@ class Menu:
             print("6 - LIMPAR")
             print("7 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")      
+
+        def menu_fila_queue():
+            print("\n-------------------------------- FILA_QUEUE -----------------------------")
+            print("1 - LISTAR")
+            print("2 - ADICIONAR")
+            print("3 - QUANTIDADE")
+            print("4 - VERIFICAR SE FILA CHEIA")
+            print("5 - REMOVER")
+            print("6 - SAIR")
+            print("---------------------------------- FIM ----------------------------------\n")     
          
         # Instâncias das classes das estruturas de dados.
         lista = ClasseLista()
@@ -107,6 +118,7 @@ class Menu:
         conjunto_frozen = ClasseFrozenset()
         dicionario = ClasseDicionario()
         fila_deque = ClasseFilaDeque()
+        fila_queue = ClasseFilaQueue()
 
         # Método para limpar tela.
         def limpar_tela():
@@ -763,8 +775,94 @@ class Menu:
 
                 limpar_tela() 
 
+            # Condicional menu principal - Queue.
             elif tipo_estrutura == "7":
-                pass
+                limpar_tela()
+
+                # While do Queue.
+                while True:
+                    menu_fila_queue()
+                    opcoes_fila_queue = input("ESCOLHA A OPERAÇÃO: ")
+
+                    # Condicional do Queue - Iterar elementos.
+                    if opcoes_fila_queue == "1":
+                        if fila_queue.fila_queue.empty():
+                            limpar_tela()
+                            print(f"⚠️  Queue vazio!")
+
+                        else:   
+                            limpar_tela()
+                            temp_items = []
+    
+                            # Esvaziar a fila salvando os itens.
+                            while not fila_queue.fila_queue.empty():
+                                item = fila_queue.fila_queue.get()
+                                temp_items.append(item)
+                            
+                            # Iterar sobre os itens.
+                            for item in temp_items:
+                                print(f"👤 {item.title()}")
+
+                            # Colocar de volta na fila original.
+                            for item in temp_items:
+                                fila_queue.fila_queue.put(item)
+
+                    # Condicional do Queue - Adicionar elementos.
+                    elif opcoes_fila_queue == "2":
+                        limpar_tela() 
+                        menu_fila_queue()
+                        elemento_fila_queue = input("DIGITE UM NOME: ")
+
+                        if elemento_fila_queue.replace(" ", "").isalpha():
+                            limpar_tela()
+                            fila_queue.adicionar(elemento_fila_queue.lower())
+                            print(f"✅ Adicionado com sucesso!")
+
+                        else:
+                            limpar_tela()
+                            print(f"❌  Entrada inválida!")  
+
+                    # Condicional do Queue - Quantidade de elementos.
+                    elif opcoes_fila_queue == "3": 
+                        if fila_queue.fila_queue.empty():
+                            limpar_tela()
+                            print(f"⚠️  Queue vazio!")
+
+                        else:   
+                            limpar_tela()
+                            print(f"✅ Quantidade de itens na Queue: {fila_queue.quantidade()}")  
+
+                    # Condicional do Queue - Verifica se a queue está cheia(caso tamanho definido).                
+                    elif opcoes_fila_queue == "4": 
+                        if fila_queue.fila_queue.empty():
+                            limpar_tela()
+                            print(f"⚠️  Queue vazio!") 
+
+                        else:   
+                            limpar_tela()
+                            if fila_queue.verificar() == True:
+                                print(f"⚠️  A fila está cheia.")
+                            else:
+                                print(f"✅ A fila não está cheia.")  
+
+                    # Condicional do Queue - Exclui elementos.  
+                    elif opcoes_fila_queue == "5": 
+                        if fila_queue.fila_queue.empty():
+                            limpar_tela()
+                            print(f"⚠️  Queue vazio!")
+
+                        else:   
+                            limpar_tela()
+                            print(f"✅ {fila_queue.remover().title()} removido.") 
+
+                    elif opcoes_fila_queue == "6": 
+                        break      
+                    else:
+                        limpar_tela()
+                        print(f"❌ Opção inválida.")
+
+                limpar_tela()      
+
             elif tipo_estrutura == "8":
                 pass
             elif tipo_estrutura == "9":
