@@ -801,7 +801,7 @@ class Menu:
                             
                             # Iterar sobre os itens.
                             for item in temp_items:
-                                print(f"👤 {item}")
+                                print(f"👤 {item.title()}")
 
                             # Colocar de volta na fila original.
                             for item in temp_items:
@@ -815,7 +815,7 @@ class Menu:
 
                         if elemento_fila_queue.replace(" ", "").isalpha():
                             limpar_tela()
-                            fila_queue.adicionar(elemento_fila_queue)
+                            fila_queue.adicionar(elemento_fila_queue.lower())
                             print(f"✅ Adicionado com sucesso!")
 
                         else:
@@ -847,7 +847,14 @@ class Menu:
 
                     # Condicional do Queue - Exclui elementos.  
                     elif opcoes_fila_queue == "5": 
-                        pass           
+                        if fila_queue.fila_queue.empty():
+                            limpar_tela()
+                            print(f"⚠️  Queue vazio!")
+
+                        else:   
+                            limpar_tela()
+                            print(f"✅ {fila_queue.remover().title()} removido.") 
+
                     elif opcoes_fila_queue == "6": 
                         break      
                     else:
