@@ -809,7 +809,18 @@ class Menu:
 
                     # Condicional do Queue - Adicionar elementos.
                     elif opcoes_fila_queue == "2": 
-                        pass
+                        menu_fila_queue()
+                        limpar_tela()
+                        elemento_fila_queue = input("DIGITE UM NOME: ")
+
+                        if elemento_fila_queue.replace(" ", "").isalpha():
+                            limpar_tela()
+                            fila_queue.adicionar(elemento_fila_queue)
+                            print(f"✅ Adicionado com sucesso!")
+
+                        else:
+                            limpar_tela()
+                            print(f"❌  Entrada inválida!")  
 
                     elif opcoes_fila_queue == "3": 
                         pass           
