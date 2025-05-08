@@ -822,7 +822,7 @@ class Menu:
                             limpar_tela()
                             print(f"❌  Entrada inválida!")  
 
-                    # Condicional do Queue - Adicionar elementos.
+                    # Condicional do Queue - Quantidade de elementos.
                     elif opcoes_fila_queue == "3": 
                         if fila_queue.fila_queue.empty():
                             limpar_tela()
@@ -834,7 +834,18 @@ class Menu:
 
                     # Condicional do Queue - Verifica se a queue está cheia(caso tamanho definido).                
                     elif opcoes_fila_queue == "4": 
-                        pass           
+                        if fila_queue.fila_queue.empty():
+                            limpar_tela()
+                            print(f"⚠️  Queue vazio!") 
+
+                        else:   
+                            limpar_tela()
+                            if fila_queue.verificar() == True:
+                                print(f"⚠️  A fila está cheia.")
+                            else:
+                                print(f"✅ A fila não está cheia.")  
+
+                    # Condicional do Queue - Exclui elementos.  
                     elif opcoes_fila_queue == "5": 
                         pass           
                     elif opcoes_fila_queue == "6": 
