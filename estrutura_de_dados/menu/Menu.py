@@ -891,10 +891,22 @@ class Menu:
 
                         else:   
                             limpar_tela()
-                            print(fila_heapq.iterar_heapq())
+                            print(f"{fila_heapq.iterar_heapq()}")
 
                     elif opcoes_fila_heapq == "2":
-                        pass
+                        limpar_tela()
+                        menu_fila_deque()
+                        elemento_fila_heapq = input("DIGITE UM NOME: ")
+
+                        if elemento_fila_heapq.replace(" ", "").isalpha():
+                            limpar_tela()
+                            fila_heapq.adicionar(elemento_fila_heapq.lower())
+                            print(f"✅ Adicionado com sucesso!")
+
+                        else:
+                            limpar_tela()
+                            print(f"❌  Entrada inválida!") 
+
                     elif opcoes_fila_heapq == "3":
                         pass
                     elif opcoes_fila_heapq == "4":

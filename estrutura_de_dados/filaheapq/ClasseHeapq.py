@@ -8,7 +8,7 @@ class ClasseHeapq:
         return self.lista 
     
     def adicionar(self, elemento):
-        return heapq.heappush(self.lista, elemento)
+        return heapq.heappush(self.lista, elemento.lower())
 
     def remover(self):
         return heapq.heappop(self.lista)
