@@ -102,6 +102,7 @@ class Menu:
             print("7 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")      
 
+        # Método menu do queue.
         def menu_fila_queue():
             print("\n-------------------------------- FILA_QUEUE -----------------------------")
             print("1 - LISTAR")
@@ -112,6 +113,7 @@ class Menu:
             print("6 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")     
 
+        # Método menu do heapq.
         def menu_fila_heapq():
             print("\n-------------------------------- FILA_HEAPQ -----------------------------")
             print("1 - LISTAR")
@@ -155,28 +157,28 @@ class Menu:
                     # Condicional da lista - Itera elementos.
                     if opcoes_lista == "1":
                         limpar_tela()
-                        if not lista.iterar_lista():
+                        if not lista.listar():
                             limpar_tela()
-                            print(f"⚠️  Lista vazia")
+                            print(f"⚠️  Lista vazia!")
 
                         elif opcoes_lista == None:
                             limpar_tela()
                             print(f"❌ Entrada inválida!")
 
                         else:   
-                            for itens in lista.iterar_lista():
+                            for itens in lista.listar():
                                 print(f"👤 {itens.title()}") 
 
                     # Condicional da lista - Adicionar elementos.
                     elif opcoes_lista == "2":
                         limpar_tela()
                         menu_lista()
-                        elemento_adicionar_lista = input("ADICIONE UM ELEMENTO: ")
+                        elemento_adicionar_lista = input("ADICIONAR UM NOME: ")
 
                         if elemento_adicionar_lista.replace(" ", "").isalpha():
-                            lista.adicionar_na_lista(elemento_adicionar_lista)
+                            lista.adicionar(elemento_adicionar_lista.lower())
                             limpar_tela()
-                            print(f"✅ Adicionado com sucesso!")
+                            print(f"✅ {elemento_adicionar_lista.title()} Adicionado com sucesso!")
                             
                         else:
                             limpar_tela()
@@ -186,14 +188,14 @@ class Menu:
                     elif opcoes_lista == "3":
                         limpar_tela()
                         menu_lista()
-                        posicao_lista = input("DIGITE A POSIÇÃO: ")  
-                        elemento_inserir_lista = input("DIGITE O NOME: ")  
+                        posicao_lista = input("ADICIONAR A POSIÇÃO: ")  
+                        elemento_inserir_lista = input("ADICIONAR O NOME: ")  
 
                         if posicao_lista.isdigit() and elemento_inserir_lista.replace(" ", "").isalpha():    
                             numero_lista = int(posicao_lista)
-                            lista.inserir_com_posicao(numero_lista, elemento_inserir_lista) 
+                            lista.inserir_com_posicao(numero_lista, elemento_inserir_lista.lower()) 
                             limpar_tela()
-                            print(f"✅ Inserido com sucesso!")
+                            print(f"✅ {elemento_inserir_lista.title()} inserido com sucesso na posição {posicao_lista}.")
 
                         else:
                             limpar_tela()
@@ -203,11 +205,11 @@ class Menu:
                     elif opcoes_lista == "4":
                         limpar_tela()  
                         menu_lista()  
-                        elemento_pesquisar_lista = input("PESQUISAR NOME: ")
+                        elemento_pesquisar_lista = input("PESQUISAR POR LETRAS: ")
 
-                        if not lista.iterar_lista():
+                        if not lista.listar():
                             limpar_tela()
-                            print(f"⚠️  Lista vazia")
+                            print(f"⚠️  Lista vazia!")
 
                         elif elemento_pesquisar_lista.replace(" ", "").isalpha(): 
                             limpar_tela()
@@ -229,19 +231,19 @@ class Menu:
                         menu_lista()  
                         elemento_excluir_lista = input("EXCLUIR NOME: ")
 
-                        if not lista.iterar_lista():
+                        if not lista.listar():
                             limpar_tela()
                             print(f"⚠️  Lista vazia")
                  
                         elif elemento_excluir_lista.replace(" ", "").isalpha():
-                            if elemento_excluir_lista.lower() not in lista.iterar_lista():
+                            if elemento_excluir_lista.lower() not in lista.listar():
                                 limpar_tela()
                                 print(f"⚠️  {elemento_excluir_lista.title()} não está na lista.") 
 
                             else: 
-                                lista.excluir_da_lista(elemento_excluir_lista)
+                                lista.excluir(elemento_excluir_lista)
                                 limpar_tela()
-                                print(f"✅ Excluído com sucesso!")
+                                print(f"✅ {elemento_excluir_lista.title()} excluído com sucesso!")
 
                         else:
                             limpar_tela()
@@ -255,7 +257,7 @@ class Menu:
 
                         if contar_elemento_lista.replace(" ", "").isalpha():
                             quantidade_elementos_lista = lista.quantidade_ocorrencias(contar_elemento_lista)
-                            if not contar_elemento_lista in lista.iterar_lista():
+                            if not contar_elemento_lista in lista.listar():
                                 limpar_tela()
                                 print(f"⚠️  A lista possui {quantidade_elementos_lista} elementos do tipo {contar_elemento_lista.title()}.")  
                             else:
@@ -268,7 +270,7 @@ class Menu:
 
                     # Condicional da lista - Limpar lista.
                     elif opcoes_lista == "7":
-                        if not lista.iterar_lista():
+                        if not lista.listar():
                             limpar_tela()
                             print(f"⚠️  Lista vazia")  
 
@@ -875,6 +877,7 @@ class Menu:
 
                 limpar_tela()      
 
+            # Condicional menu principal - Heapq.
             elif tipo_estrutura == "8":
                 limpar_tela()
 
