@@ -10,7 +10,7 @@ class ClasseHeapq:
     def adicionar(self, elemento):
         return heapq.heappush(self.lista, elemento.lower())
 
-    def remover(self):
+    def excluir(self):
         return heapq.heappop(self.lista)
 
     def quantidade(self):

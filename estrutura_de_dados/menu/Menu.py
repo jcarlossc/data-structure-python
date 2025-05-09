@@ -117,7 +117,7 @@ class Menu:
             print("1 - LISTAR")
             print("2 - ADICIONAR")
             print("3 - QUANTIDADE")
-            print("4 - VERIFICAR SE FILA CHEIA")
+            print("4 - EXCLUIR")
             print("5 - REMOVER")
             print("6 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")     
@@ -884,6 +884,7 @@ class Menu:
                     menu_fila_queue()
                     opcoes_fila_heapq = input("ESCOLHA A OPERAÇÃO: ")
 
+                    # Condicional do Heapq - Itera elementos.  
                     if opcoes_fila_heapq == "1":
                         if not fila_heapq.iterar_heapq():
                             limpar_tela()
@@ -893,6 +894,7 @@ class Menu:
                             limpar_tela()
                             print(f"{fila_heapq.iterar_heapq()}")
 
+                    # Condicional do Heapq - Adiciona elementos.  
                     elif opcoes_fila_heapq == "2":
                         limpar_tela()
                         menu_fila_deque()
@@ -907,6 +909,7 @@ class Menu:
                             limpar_tela()
                             print(f"❌  Entrada inválida!") 
 
+                    # Condicional do Heapq - Quantidade de elementos.  
                     elif opcoes_fila_heapq == "3":
                         if not fila_heapq.iterar_heapq():
                             limpar_tela()
@@ -916,11 +919,18 @@ class Menu:
                             limpar_tela()
                             print(f"✅ A fila Queue possui {fila_heapq.quantidade()} elementos.")
 
+                    # Condicional do Heapq - Exclui elementos.  
                     elif opcoes_fila_heapq == "4":
-                        pass
+                        if not fila_heapq.iterar_heapq():
+                            limpar_tela()
+                            print(f"⚠️  Queue vazio!")
+
+                        else:   
+                            limpar_tela()
+                            fila_heapq.excluir()
+                            print(f"✅ O primeiro elemento foi excluído com sucesso.")
+
                     elif opcoes_fila_heapq == "5":
-                        pass
-                    elif opcoes_fila_heapq == "6":
                         break    
                       
                     else:
