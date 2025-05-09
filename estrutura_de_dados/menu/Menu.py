@@ -908,10 +908,19 @@ class Menu:
                             print(f"❌  Entrada inválida!") 
 
                     elif opcoes_fila_heapq == "3":
-                        pass
+                        if not fila_heapq.iterar_heapq():
+                            limpar_tela()
+                            print(f"⚠️  Queue vazio!")
+
+                        else:   
+                            limpar_tela()
+                            print(f"✅ A fila Queue possui {fila_heapq.quantidade()} elementos.")
+
                     elif opcoes_fila_heapq == "4":
                         pass
                     elif opcoes_fila_heapq == "5":
+                        pass
+                    elif opcoes_fila_heapq == "6":
                         break    
                       
                     else:
