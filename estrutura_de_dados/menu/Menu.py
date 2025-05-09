@@ -118,8 +118,7 @@ class Menu:
             print("2 - ADICIONAR")
             print("3 - QUANTIDADE")
             print("4 - EXCLUIR")
-            print("5 - REMOVER")
-            print("6 - SAIR")
+            print("5 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")     
          
         # Instâncias das classes das estruturas de dados.
@@ -881,7 +880,7 @@ class Menu:
 
                 # While do Heapq.
                 while True:
-                    menu_fila_queue()
+                    menu_fila_heapq()
                     opcoes_fila_heapq = input("ESCOLHA A OPERAÇÃO: ")
 
                     # Condicional do Heapq - Itera elementos.  
@@ -897,7 +896,7 @@ class Menu:
                     # Condicional do Heapq - Adiciona elementos.  
                     elif opcoes_fila_heapq == "2":
                         limpar_tela()
-                        menu_fila_deque()
+                        menu_fila_heapq()
                         elemento_fila_heapq = input("DIGITE UM NOME: ")
 
                         if elemento_fila_heapq.replace(" ", "").isalpha():
