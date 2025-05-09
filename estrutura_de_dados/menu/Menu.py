@@ -2,6 +2,7 @@ import os
 from estrutura_de_dados.conjunto.ClasseConjunto import ClasseConjunto
 from estrutura_de_dados.dicionario.ClasseDicionario import ClasseDicionario
 from estrutura_de_dados.filadeque.ClasseFilaDeque import ClasseFilaDeque
+from estrutura_de_dados.filaheapq.ClasseHeapq import ClasseHeapq
 from estrutura_de_dados.filaqueue.ClasseFilaQueue import ClasseFilaQueue
 from estrutura_de_dados.lista.ClasseLista import ClasseLista
 from estrutura_de_dados.tupla.ClasseTupla import ClasseTupla
@@ -110,6 +111,16 @@ class Menu:
             print("5 - REMOVER")
             print("6 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")     
+
+        def menu_fila_heapq():
+            print("\n-------------------------------- FILA_HEAPQ -----------------------------")
+            print("1 - LISTAR")
+            print("2 - ADICIONAR")
+            print("3 - QUANTIDADE")
+            print("4 - VERIFICAR SE FILA CHEIA")
+            print("5 - REMOVER")
+            print("6 - SAIR")
+            print("---------------------------------- FIM ----------------------------------\n")     
          
         # Instâncias das classes das estruturas de dados.
         lista = ClasseLista()
@@ -119,6 +130,7 @@ class Menu:
         dicionario = ClasseDicionario()
         fila_deque = ClasseFilaDeque()
         fila_queue = ClasseFilaQueue()
+        fila_heapq = ClasseHeapq()
 
         # Método para limpar tela.
         def limpar_tela():
@@ -856,7 +868,8 @@ class Menu:
                             print(f"✅ {fila_queue.remover().title()} removido.") 
 
                     elif opcoes_fila_queue == "6": 
-                        break      
+                        break    
+                      
                     else:
                         limpar_tela()
                         print(f"❌ Opção inválida.")
@@ -864,7 +877,37 @@ class Menu:
                 limpar_tela()      
 
             elif tipo_estrutura == "8":
-                pass
+                limpar_tela()
+
+                # While do Heapq.
+                while True:
+                    menu_fila_queue()
+                    opcoes_fila_heapq = input("ESCOLHA A OPERAÇÃO: ")
+
+                    if opcoes_fila_heapq == "1":
+                        if not fila_heapq.iterar_heapq():
+                            limpar_tela()
+                            print(f"⚠️  Queue vazio!")
+
+                        else:   
+                            limpar_tela()
+                            print(fila_heapq.iterar_heapq())
+
+                    elif opcoes_fila_heapq == "2":
+                        pass
+                    elif opcoes_fila_heapq == "3":
+                        pass
+                    elif opcoes_fila_heapq == "4":
+                        pass
+                    elif opcoes_fila_heapq == "5":
+                        break    
+                      
+                    else:
+                        limpar_tela()
+                        print(f"❌ Opção inválida.")
+
+                limpar_tela()   
+
             elif tipo_estrutura == "9":
                 limpar_tela()
                 print("SAIR, ATÉ A PRÓXIMA!")
