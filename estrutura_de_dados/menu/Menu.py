@@ -46,12 +46,13 @@ class Menu:
         def menu_tupla():
             print("\n--------------------------------- TUPLA ---------------------------------")
             print("1 - LISTAR")
-            print("2 - PESQUISAR OCORRÊNCIAS")
-            print("3 - PESQUISAR POR ÍNDICE")
-            print("4 - QUANTIDADE DE ELEMENTOS")
-            print("5 - ORDEM MÁXIMO")
-            print("6 - ORDEM MÍNIMO")
-            print("7 - SAIR")
+            print("2 - ADICIONAR")
+            print("3 - PESQUISAR OCORRÊNCIAS")
+            print("4 - PESQUISAR POR ÍNDICE")
+            print("5 - QUANTIDADE DE ELEMENTOS")
+            print("6 - ORDEM MÁXIMO")
+            print("7 - ORDEM MÍNIMO")
+            print("8 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")    
 
         # Método menu do conjunto(set).
@@ -102,6 +103,7 @@ class Menu:
             print("7 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")      
 
+        # Método menu do queue.
         def menu_fila_queue():
             print("\n-------------------------------- FILA_QUEUE -----------------------------")
             print("1 - LISTAR")
@@ -112,14 +114,14 @@ class Menu:
             print("6 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")     
 
+        # Método menu do heapq.
         def menu_fila_heapq():
             print("\n-------------------------------- FILA_HEAPQ -----------------------------")
             print("1 - LISTAR")
             print("2 - ADICIONAR")
             print("3 - QUANTIDADE")
             print("4 - EXCLUIR")
-            print("5 - REMOVER")
-            print("6 - SAIR")
+            print("5 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")     
          
         # Instâncias das classes das estruturas de dados.
@@ -156,28 +158,28 @@ class Menu:
                     # Condicional da lista - Itera elementos.
                     if opcoes_lista == "1":
                         limpar_tela()
-                        if not lista.iterar_lista():
+                        if not lista.listar():
                             limpar_tela()
-                            print(f"⚠️  Lista vazia")
+                            print(f"⚠️  Lista vazia!")
 
                         elif opcoes_lista == None:
                             limpar_tela()
                             print(f"❌ Entrada inválida!")
 
                         else:   
-                            for itens in lista.iterar_lista():
+                            for itens in lista.listar():
                                 print(f"👤 {itens.title()}") 
 
                     # Condicional da lista - Adicionar elementos.
                     elif opcoes_lista == "2":
                         limpar_tela()
                         menu_lista()
-                        elemento_adicionar_lista = input("ADICIONE UM ELEMENTO: ")
+                        elemento_adicionar_lista = input("ADICIONAR UM NOME: ")
 
                         if elemento_adicionar_lista.replace(" ", "").isalpha():
-                            lista.adicionar_na_lista(elemento_adicionar_lista)
+                            lista.adicionar(elemento_adicionar_lista.lower())
                             limpar_tela()
-                            print(f"✅ Adicionado com sucesso!")
+                            print(f"✅ {elemento_adicionar_lista.title()} Adicionado com sucesso!")
                             
                         else:
                             limpar_tela()
@@ -187,14 +189,14 @@ class Menu:
                     elif opcoes_lista == "3":
                         limpar_tela()
                         menu_lista()
-                        posicao_lista = input("DIGITE A POSIÇÃO: ")  
-                        elemento_inserir_lista = input("DIGITE O NOME: ")  
+                        posicao_lista = input("ADICIONAR A POSIÇÃO: ")  
+                        elemento_inserir_lista = input("ADICIONAR O NOME: ")  
 
                         if posicao_lista.isdigit() and elemento_inserir_lista.replace(" ", "").isalpha():    
                             numero_lista = int(posicao_lista)
-                            lista.inserir_com_posicao(numero_lista, elemento_inserir_lista) 
+                            lista.inserir_com_posicao(numero_lista, elemento_inserir_lista.lower()) 
                             limpar_tela()
-                            print(f"✅ Inserido com sucesso!")
+                            print(f"✅ {elemento_inserir_lista.title()} inserido com sucesso na posição {posicao_lista}.")
 
                         else:
                             limpar_tela()
@@ -204,11 +206,11 @@ class Menu:
                     elif opcoes_lista == "4":
                         limpar_tela()  
                         menu_lista()  
-                        elemento_pesquisar_lista = input("PESQUISAR NOME: ")
+                        elemento_pesquisar_lista = input("PESQUISAR POR LETRAS: ")
 
-                        if not lista.iterar_lista():
+                        if not lista.listar():
                             limpar_tela()
-                            print(f"⚠️  Lista vazia")
+                            print(f"⚠️  Lista vazia!")
 
                         elif elemento_pesquisar_lista.replace(" ", "").isalpha(): 
                             limpar_tela()
@@ -230,19 +232,19 @@ class Menu:
                         menu_lista()  
                         elemento_excluir_lista = input("EXCLUIR NOME: ")
 
-                        if not lista.iterar_lista():
+                        if not lista.listar():
                             limpar_tela()
                             print(f"⚠️  Lista vazia")
                  
                         elif elemento_excluir_lista.replace(" ", "").isalpha():
-                            if elemento_excluir_lista.lower() not in lista.iterar_lista():
+                            if elemento_excluir_lista.lower() not in lista.listar():
                                 limpar_tela()
                                 print(f"⚠️  {elemento_excluir_lista.title()} não está na lista.") 
 
                             else: 
-                                lista.excluir_da_lista(elemento_excluir_lista)
+                                lista.excluir(elemento_excluir_lista)
                                 limpar_tela()
-                                print(f"✅ Excluído com sucesso!")
+                                print(f"✅ {elemento_excluir_lista.title()} excluído com sucesso!")
 
                         else:
                             limpar_tela()
@@ -256,9 +258,9 @@ class Menu:
 
                         if contar_elemento_lista.replace(" ", "").isalpha():
                             quantidade_elementos_lista = lista.quantidade_ocorrencias(contar_elemento_lista)
-                            if not contar_elemento_lista in lista.iterar_lista():
+                            if not contar_elemento_lista in lista.listar():
                                 limpar_tela()
-                                print(f"⚠️  A lista possui {quantidade_elementos_lista} elementos do tipo {contar_elemento_lista.title()}.")  
+                                print(f"⚠️  A lista não possui elementos do tipo {contar_elemento_lista.title()}.")  
                             else:
                                 limpar_tela()
                                 print(f"✅ A lista possui {quantidade_elementos_lista} elementos do tipo {contar_elemento_lista.title()}.")  
@@ -269,7 +271,7 @@ class Menu:
 
                     # Condicional da lista - Limpar lista.
                     elif opcoes_lista == "7":
-                        if not lista.iterar_lista():
+                        if not lista.listar():
                             limpar_tela()
                             print(f"⚠️  Lista vazia")  
 
@@ -301,30 +303,40 @@ class Menu:
                     if opcoes_tupla == "1":
                         limpar_tela()
 
-                        if not tupla.iterar_tupla():
+                        if not tupla.listar():
                             limpar_tela()
-                            print("⚠️  Lista vazia")
-
-                        elif opcoes_tupla == None:
-                            limpar_tela()
-                            print("❌ Entrada inválida!")
+                            print(f"⚠️  Tupla vazia!")
 
                         else:   
-                            for itens in tupla.iterar_tupla():
+                            for itens in tupla.listar():
                                 print(f"👤 {itens.title()}") 
 
-                    # Condicional da tupla - Pesquisar ocorrências dos elementos.
-                    elif opcoes_tupla == "2": 
+                    # Condicional da tupla - Adiciona elementos.
+                    elif opcoes_tupla == "2":
                         limpar_tela()
-                        menu_lista()
+                        menu_tupla()
+                        elemento_adicionar_tupla = input("ADICIONAR UM NOME: ")
+
+                        if elemento_adicionar_tupla.replace(" ", "").isalpha():
+                            tupla.adicionar(elemento_adicionar_tupla.lower())
+                            limpar_tela()
+                            print(f"✅ {elemento_adicionar_tupla.title()} Adicionado com sucesso!")
+                            
+                        else:
+                            limpar_tela()
+                            print(f"❌ Entrada inválida!") 
+
+                    # Condicional da tupla - Pesquisar ocorrências dos elementos.
+                    elif opcoes_tupla == "3": 
+                        limpar_tela()
+                        menu_tupla()
                         ocorrencias_tupla = input("DIGITE UM NOME: ")
 
                         if ocorrencias_tupla.replace(" ", "").isalpha():
-                            if not ocorrencias_tupla in tupla.iterar_tupla():
+                            if not ocorrencias_tupla in tupla.listar():
                                 limpar_tela()
                                 print(f"⚠️  Não há ocorrência do elemento {ocorrencias_tupla.title()}.")
-                            else:    
-                                limpar_tela()
+                            else:  
                                 quantidade_elementos_tupla = tupla.contar_ocorrencias(ocorrencias_tupla)
                                 limpar_tela()
                                 print(f"✅ A tupla possui {quantidade_elementos_tupla} ocorrências do elemento {ocorrencias_tupla.title()}.")
@@ -334,13 +346,13 @@ class Menu:
                             print(f"❌ Entrada inválida!") 
 
                     # Condicional da tupla - Pesquisar índice dos elementos.
-                    elif opcoes_tupla == "3": 
+                    elif opcoes_tupla == "4": 
                         limpar_tela()
-                        menu_lista()
+                        menu_tupla()
                         pesquisa_nome_tupla = input("DIGITE UM NOME: ")
 
                         if pesquisa_nome_tupla.replace(" ", "").isalpha():
-                            if not pesquisa_nome_tupla in tupla.iterar_tupla():
+                            if not pesquisa_nome_tupla in tupla.listar():
                                 limpar_tela()
                                 print(f"⚠️  Não há ocorrência do elemento {pesquisa_nome_tupla.title()}.")
                             else:    
@@ -352,24 +364,24 @@ class Menu:
                             print(f"❌ Entrada inválida!") 
 
                     # Condicional da tupla - Pesquisar quantidade de elementos.
-                    elif opcoes_tupla == "4": 
+                    elif opcoes_tupla == "5": 
                         limpar_tela()
                         print(f"✅ Existem {tupla.quantidade()} elementos na tupla.")
 
                     # Condicional da tupla - Pesquisa por elementos em ordem alfabética máxima.
-                    elif opcoes_tupla == "5": 
+                    elif opcoes_tupla == "6": 
                         ordem_maxima = tupla.ordem_maxima()
                         limpar_tela()
                         print(f"✅ {ordem_maxima.title()} é a primeira ocorrência do último elemento em ordem alfabética.") 
 
                     # Condicional da tupla - Pesquisa por elementos em ordem alfabética mínima.
-                    elif opcoes_tupla == "6": 
+                    elif opcoes_tupla == "7": 
                         ordem_minima = tupla.ordem_minima()
                         limpar_tela()
                         print(f"✅ {ordem_minima.title()} é a primeira ocorrência do primeiro elemento em ordem alfabética.")
 
                     # Condicional da tupla - Sai do while.
-                    elif opcoes_tupla == "7": 
+                    elif opcoes_tupla == "8": 
                         break
 
                     else:
@@ -392,28 +404,28 @@ class Menu:
                         limpar_tela()
                         menu_lista()
                         
-                        if not conjunto.iterar_conjunto():
+                        if not conjunto.listar():
                             limpar_tela()
                             print(f"⚠️  Set vazio!")
                         else:   
                             limpar_tela()
-                            for itens in conjunto.iterar_conjunto():
+                            for itens in conjunto.listar():
                                 print(f"👤 {itens.title()}") 
 
                     # Condicional do conjunto(set) - Adicionar elementos.
                     elif opcoes_conjunto == "2":   
                         limpar_tela()
-                        menu_lista()
+                        menu_conjunto()
                         elemento_adicionar_conjunto = input("ADICIONAR UM NOME: ")
 
                         if elemento_adicionar_conjunto.replace(" ", "").isalpha():
-                            if elemento_adicionar_conjunto in conjunto.iterar_conjunto():  
+                            if elemento_adicionar_conjunto in conjunto.listar():  
                                 limpar_tela() 
-                                print(f"⚠️  O nome já existe!") 
+                                print(f"⚠️  {elemento_adicionar_conjunto.title()} já existe!") 
                             else:    
                                 conjunto.adicionar(elemento_adicionar_conjunto)
                                 limpar_tela()
-                                print(f"✅ Adicionado com sucesso!")  
+                                print(f"✅ {elemento_adicionar_conjunto.title()} Adicionado com sucesso!")  
 
                         else:
                             limpar_tela()
@@ -422,22 +434,22 @@ class Menu:
                     # Condicional do conjunto(set) - Exclui elementos.
                     elif opcoes_conjunto == "3":  
                         limpar_tela()
-                        menu_lista()
+                        menu_conjunto()
                         elemento_excluir_conjunto = input("EXCLUIR NOME: ")
                         
-                        if not conjunto.iterar_conjunto():
+                        if not conjunto.listar():
                             limpar_tela()
                             print(f"⚠️  Set vazio!")
 
                         elif elemento_excluir_conjunto.replace(" ", "").isalpha():
-                            if elemento_excluir_conjunto not in conjunto.iterar_conjunto():
+                            if elemento_excluir_conjunto not in conjunto.listar():
                                 limpar_tela()
-                                print(f"⚠️  O elemento não está no conjunto!")  
+                                print(f"⚠️  O elemento {elemento_excluir_conjunto.title()} não está no conjunto!")  
 
                             else:    
                                 conjunto.excluir(elemento_excluir_conjunto)
                                 limpar_tela()
-                                print(f"✅ Excluído com sucesso!")
+                                print(f"✅ {elemento_excluir_conjunto.title()} excluído com sucesso!")
 
                         else:
                             limpar_tela()
@@ -445,45 +457,45 @@ class Menu:
 
                     # Condicional do conjunto(set) - Exclui elementos aleatórios.
                     elif opcoes_conjunto == "4":   
-                        if not conjunto.iterar_conjunto():
+                        if not conjunto.listar():
                             limpar_tela()
                             print(f"⚠️  Set vazio!")
                         else:   
-                            conjunto.excluir_aleatorio()
+                            resultado = conjunto.excluir_aleatorio()
                             limpar_tela()
-                            print(f"✅ Excluído com sucesso!")
+                            print(f"✅ {resultado.title()} excluído com sucesso!")
 
                     # Condicional do conjunto(set) - União de elementos.
                     elif opcoes_conjunto == "5":   
-                        if not conjunto.iterar_conjunto():
+                        if not conjunto.listar():
                             limpar_tela()
                             print(f"⚠️  Set vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ Conjunto criado: {conjunto.iterar_conjunto()}")
+                            print(f"✅ Conjunto criado: {conjunto.listar()}")
                             print(f"✅ Subconjunto para teste: {conjunto.conjunto_suporte}")
                             print(f"✅ União dos conjuntos: {conjunto.uniao()}")
 
                     # Condicional do conjunto(set) - Interseção de elementos.
                     elif opcoes_conjunto == "6":   
-                        if not conjunto.iterar_conjunto():
+                        if not conjunto.listar():
                             print(f"⚠️  Set vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ Conjunto criado: {conjunto.iterar_conjunto()}")
+                            print(f"✅ Conjunto criado: {conjunto.listar()}")
                             print(f"✅ Subconjunto para teste: {conjunto.conjunto_suporte}")
                             print(f"✅ interseção dos conjuntos: {conjunto.intersecao()}")
 
                     # Condicional do conjunto(set) - Diferença de elementos.
                     elif opcoes_conjunto == "7":   
-                        if not conjunto.iterar_conjunto():
+                        if not conjunto.listar():
                             print(f"⚠️  Set vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ Conjunto criado: {conjunto.iterar_conjunto()}")
+                            print(f"✅ Conjunto criado: {conjunto.listar()}")
                             print(f"✅ Subconjunto para teste: {conjunto.conjunto_suporte}")
                             print(f"✅ Diferença dos conjuntos:", conjunto.diferenca())
 
@@ -876,12 +888,13 @@ class Menu:
 
                 limpar_tela()      
 
+            # Condicional menu principal - Heapq.
             elif tipo_estrutura == "8":
                 limpar_tela()
 
                 # While do Heapq.
                 while True:
-                    menu_fila_queue()
+                    menu_fila_heapq()
                     opcoes_fila_heapq = input("ESCOLHA A OPERAÇÃO: ")
 
                     # Condicional do Heapq - Itera elementos.  
@@ -897,7 +910,7 @@ class Menu:
                     # Condicional do Heapq - Adiciona elementos.  
                     elif opcoes_fila_heapq == "2":
                         limpar_tela()
-                        menu_fila_deque()
+                        menu_fila_heapq()
                         elemento_fila_heapq = input("DIGITE UM NOME: ")
 
                         if elemento_fila_heapq.replace(" ", "").isalpha():

@@ -1,9 +1,14 @@
 class ClasseTupla:
     def __init__(self):
-        self.tupla = ('carlos', 'teresa', 'soares', 'carlos', 'carlos', 'teresa')
+        self.tupla = ()
 
-    def iterar_tupla(self):
-        return self.tupla    
+    def listar(self):
+        return self.tupla  
+
+    def adicionar(self, elemento): 
+        lista = list(self.tupla)
+        lista.append(elemento)
+        self.tupla = tuple(lista)
 
     def contar_ocorrencias(self, nome):
         return self.tupla.count(nome.lower())
