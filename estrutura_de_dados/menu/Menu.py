@@ -711,14 +711,14 @@ class Menu:
 
                     # Condicional do deque - Iterar elementos.
                     if opcoes_fila_deque == "1":
-                        if not fila_deque.iterar_deque():
+                        if not fila_deque.listar():
                             limpar_tela()
                             print(f"⚠️  Deque vazio!")
 
                         else:   
                             limpar_tela()
-                            for item in fila_deque.iterar_deque():
-                                print(f"👤 {item}")
+                            for item in fila_deque.listar():
+                                print(f"👤 {item.title()}")
 
                     # Condicional do deque - Adicionar elementos.
                     elif opcoes_fila_deque == "2":
@@ -728,8 +728,8 @@ class Menu:
 
                         if nome_fila_deque.replace(" ", "").isalpha():
                             limpar_tela()
-                            fila_deque.adicionar(nome_fila_deque)
-                            print(f"✅ Adicionado com sucesso!")
+                            fila_deque.adicionar(nome_fila_deque.lower())
+                            print(f"✅ {nome_fila_deque.title()} adicionado com sucesso!")
 
                         else:
                             limpar_tela()
@@ -742,14 +742,14 @@ class Menu:
                         nome_fila_deque_comeco = input("DIGITE UM NOME: ")
 
                         if nome_fila_deque_comeco.replace(" ", "").isalpha():
-                            if not fila_deque.iterar_deque():
+                            if not fila_deque.listar():
                                 limpar_tela()
                                 print(f"⚠️  Deque vazio")
 
                             else:    
                                 limpar_tela()
                                 fila_deque.adiciona_comeco(nome_fila_deque_comeco)
-                                print(f"✅ Adicionado com sucesso!")
+                                print(f"✅ {nome_fila_deque_comeco.title()} adicionado no início com sucesso!")
 
                         else:
                             limpar_tela()
@@ -757,27 +757,27 @@ class Menu:
                         
                     # Condicional do deque - Excluir elemento do fim.    
                     elif opcoes_fila_deque == "4":
-                        if not fila_deque.iterar_deque():
+                        if not fila_deque.listar():
                             limpar_tela()
                             print(f"⚠️  Deque vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ {fila_deque.remove_fim()} Removido com sucesso!")  
+                            print(f"✅ {fila_deque.remove_fim()} removido do fim com sucesso!")  
 
                     # Condicional do deque - Excluir elemento do começo.  
                     elif opcoes_fila_deque == "5":
-                        if not fila_deque.iterar_deque():
+                        if not fila_deque.listar():
                             limpar_tela()
                             print(f"⚠️  Deque vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ {fila_deque.remover_primeiro()} Removido com sucesso!")  
+                            print(f"✅ {fila_deque.remover_primeiro()} removido do início com sucesso!")  
 
                     # Condicional do deque - Limpar deque.  
                     elif opcoes_fila_deque == "6":
-                        if not fila_deque.iterar_deque():
+                        if not fila_deque.listar():
                             limpar_tela()
                             print(f"⚠️  Deque vazio!")
 
