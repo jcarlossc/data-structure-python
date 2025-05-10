@@ -522,63 +522,59 @@ class Menu:
                         limpar_tela()
                         menu_lista()
 
-                        if not conjunto_frozen.iterar_conjunto():
+                        if not conjunto_frozen.listar():
                             limpar_tela()
                             print(f"⚠️  Frozenset vazio!")
 
-                        elif opcoes_conjunto_frozen == None:
-                            limpar_tela()
-                            print(f"❌ Entrada inválida!")     
-
                         else:   
                             limpar_tela()
-                            for itens in conjunto_frozen.iterar_conjunto():
+                            for itens in conjunto_frozen.listar():
                                  print(f"👤 {itens.title()}") 
 
                     # Condicional do conjunto(frozenset) - Unir elementos.
                     elif opcoes_conjunto_frozen == "2": 
-                        if not conjunto_frozen.iterar_conjunto():
+                        if not conjunto_frozen.listar():
                             limpar_tela()
                             print(f"⚠️  Frozenset vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ Conjunto: {conjunto_frozen.iterar_conjunto()}")
+                            print(f"✅ Conjunto: {conjunto_frozen.listar()}")
                             print(f"✅ Subconjunto para teste: {conjunto_frozen.conjunto_frozen_suporte}")
                             print(f"✅ União dos conjuntos: {conjunto_frozen.uniao()}")
 
                     # Condicional do conjunto(frozenset) - Interseção dos elementos.
                     elif opcoes_conjunto_frozen == "3": 
-                        if not conjunto_frozen.iterar_conjunto():
+                        if not conjunto_frozen.listar():
                             limpar_tela()
                             print(f"⚠️  Frozenset vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ Conjunto: {conjunto_frozen.iterar_conjunto()}")
+                            print(f"✅ Conjunto: {conjunto_frozen.listar()}")
                             print(f"✅ Subconjunto para teste: {conjunto_frozen.conjunto_frozen_suporte}")
                             print(f"✅ Interseção dos conjuntos: {conjunto_frozen.intersecao()}")
 
                     # Condicional do conjunto(frozenset) - Diferença dos elementos.
                     elif opcoes_conjunto_frozen == "4": 
-                        if not conjunto_frozen.iterar_conjunto():
+                        if not conjunto_frozen.listar():
                             limpar_tela()
-                            print(f"⚠️  Frozenset vazio1!")
+                            print(f"⚠️  Frozenset vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ Conjunto: {conjunto_frozen.iterar_conjunto()}")
+                            print(f"✅ Conjunto: {conjunto_frozen.listar()}")
                             print(f"✅ Subconjunto para teste: {conjunto_frozen.conjunto_frozen_suporte}")
                             print(f"✅ Diferença dos conjuntos: {conjunto_frozen.diferenca()}")
 
                     # Condicional do conjunto(frozenset) - Copiar elementos.
                     elif opcoes_conjunto_frozen == "5": 
-                        if not conjunto_frozen.iterar_conjunto():
+                        if not conjunto_frozen.listar():
                             print(f"⚠️  Frozenset vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ Conjunto: {conjunto_frozen.iterar_conjunto()}")  
+                            print(f"✅ Conjunto: {conjunto_frozen.listar()}")  
                             print(f"✅ Conjunto copiado: {conjunto_frozen.copiar()}")
 
                     elif opcoes_conjunto_frozen == "6": 

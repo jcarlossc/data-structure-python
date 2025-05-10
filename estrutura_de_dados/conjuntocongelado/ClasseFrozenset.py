@@ -3,7 +3,7 @@ class ClasseFrozenset:
         self.conjunto_frozen = frozenset(['carlos costa', 'maria teresa', 'jose carlos'])
         self.conjunto_frozen_suporte = frozenset(['maria teresa', 'jeck soares', 'jose carlos'])
 
-    def iterar_conjunto(self):
+    def listar(self):
         return self.conjunto_frozen    
     
     def uniao(self):
