@@ -46,12 +46,13 @@ class Menu:
         def menu_tupla():
             print("\n--------------------------------- TUPLA ---------------------------------")
             print("1 - LISTAR")
-            print("2 - PESQUISAR OCORRÊNCIAS")
-            print("3 - PESQUISAR POR ÍNDICE")
-            print("4 - QUANTIDADE DE ELEMENTOS")
-            print("5 - ORDEM MÁXIMO")
-            print("6 - ORDEM MÍNIMO")
-            print("7 - SAIR")
+            print("2 - ADICIONAR")
+            print("3 - PESQUISAR OCORRÊNCIAS")
+            print("4 - PESQUISAR POR ÍNDICE")
+            print("5 - QUANTIDADE DE ELEMENTOS")
+            print("6 - ORDEM MÁXIMO")
+            print("7 - ORDEM MÍNIMO")
+            print("8 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")    
 
         # Método menu do conjunto(set).
@@ -259,7 +260,7 @@ class Menu:
                             quantidade_elementos_lista = lista.quantidade_ocorrencias(contar_elemento_lista)
                             if not contar_elemento_lista in lista.listar():
                                 limpar_tela()
-                                print(f"⚠️  A lista possui {quantidade_elementos_lista} elementos do tipo {contar_elemento_lista.title()}.")  
+                                print(f"⚠️  A lista não possui elementos do tipo {contar_elemento_lista.title()}.")  
                             else:
                                 limpar_tela()
                                 print(f"✅ A lista possui {quantidade_elementos_lista} elementos do tipo {contar_elemento_lista.title()}.")  
@@ -302,30 +303,40 @@ class Menu:
                     if opcoes_tupla == "1":
                         limpar_tela()
 
-                        if not tupla.iterar_tupla():
+                        if not tupla.listar():
                             limpar_tela()
-                            print("⚠️  Lista vazia")
-
-                        elif opcoes_tupla == None:
-                            limpar_tela()
-                            print("❌ Entrada inválida!")
+                            print(f"⚠️  Tupla vazia!")
 
                         else:   
-                            for itens in tupla.iterar_tupla():
+                            for itens in tupla.listar():
                                 print(f"👤 {itens.title()}") 
 
-                    # Condicional da tupla - Pesquisar ocorrências dos elementos.
-                    elif opcoes_tupla == "2": 
+                    # Condicional da tupla - Adiciona elementos.
+                    elif opcoes_tupla == "2":
                         limpar_tela()
-                        menu_lista()
+                        menu_tupla()
+                        elemento_adicionar_tupla = input("ADICIONAR UM NOME: ")
+
+                        if elemento_adicionar_tupla.replace(" ", "").isalpha():
+                            tupla.adicionar(elemento_adicionar_tupla.lower())
+                            limpar_tela()
+                            print(f"✅ {elemento_adicionar_tupla.title()} Adicionado com sucesso!")
+                            
+                        else:
+                            limpar_tela()
+                            print(f"❌ Entrada inválida!") 
+
+                    # Condicional da tupla - Pesquisar ocorrências dos elementos.
+                    elif opcoes_tupla == "3": 
+                        limpar_tela()
+                        menu_tupla()
                         ocorrencias_tupla = input("DIGITE UM NOME: ")
 
                         if ocorrencias_tupla.replace(" ", "").isalpha():
-                            if not ocorrencias_tupla in tupla.iterar_tupla():
+                            if not ocorrencias_tupla in tupla.listar():
                                 limpar_tela()
                                 print(f"⚠️  Não há ocorrência do elemento {ocorrencias_tupla.title()}.")
-                            else:    
-                                limpar_tela()
+                            else:  
                                 quantidade_elementos_tupla = tupla.contar_ocorrencias(ocorrencias_tupla)
                                 limpar_tela()
                                 print(f"✅ A tupla possui {quantidade_elementos_tupla} ocorrências do elemento {ocorrencias_tupla.title()}.")
@@ -335,13 +346,13 @@ class Menu:
                             print(f"❌ Entrada inválida!") 
 
                     # Condicional da tupla - Pesquisar índice dos elementos.
-                    elif opcoes_tupla == "3": 
+                    elif opcoes_tupla == "4": 
                         limpar_tela()
-                        menu_lista()
+                        menu_tupla()
                         pesquisa_nome_tupla = input("DIGITE UM NOME: ")
 
                         if pesquisa_nome_tupla.replace(" ", "").isalpha():
-                            if not pesquisa_nome_tupla in tupla.iterar_tupla():
+                            if not pesquisa_nome_tupla in tupla.listar():
                                 limpar_tela()
                                 print(f"⚠️  Não há ocorrência do elemento {pesquisa_nome_tupla.title()}.")
                             else:    
@@ -353,24 +364,24 @@ class Menu:
                             print(f"❌ Entrada inválida!") 
 
                     # Condicional da tupla - Pesquisar quantidade de elementos.
-                    elif opcoes_tupla == "4": 
+                    elif opcoes_tupla == "5": 
                         limpar_tela()
                         print(f"✅ Existem {tupla.quantidade()} elementos na tupla.")
 
                     # Condicional da tupla - Pesquisa por elementos em ordem alfabética máxima.
-                    elif opcoes_tupla == "5": 
+                    elif opcoes_tupla == "6": 
                         ordem_maxima = tupla.ordem_maxima()
                         limpar_tela()
                         print(f"✅ {ordem_maxima.title()} é a primeira ocorrência do último elemento em ordem alfabética.") 
 
                     # Condicional da tupla - Pesquisa por elementos em ordem alfabética mínima.
-                    elif opcoes_tupla == "6": 
+                    elif opcoes_tupla == "7": 
                         ordem_minima = tupla.ordem_minima()
                         limpar_tela()
                         print(f"✅ {ordem_minima.title()} é a primeira ocorrência do primeiro elemento em ordem alfabética.")
 
                     # Condicional da tupla - Sai do while.
-                    elif opcoes_tupla == "7": 
+                    elif opcoes_tupla == "8": 
                         break
 
                     else:
