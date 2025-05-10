@@ -404,28 +404,28 @@ class Menu:
                         limpar_tela()
                         menu_lista()
                         
-                        if not conjunto.iterar_conjunto():
+                        if not conjunto.listar():
                             limpar_tela()
                             print(f"⚠️  Set vazio!")
                         else:   
                             limpar_tela()
-                            for itens in conjunto.iterar_conjunto():
+                            for itens in conjunto.listar():
                                 print(f"👤 {itens.title()}") 
 
                     # Condicional do conjunto(set) - Adicionar elementos.
                     elif opcoes_conjunto == "2":   
                         limpar_tela()
-                        menu_lista()
+                        menu_conjunto()
                         elemento_adicionar_conjunto = input("ADICIONAR UM NOME: ")
 
                         if elemento_adicionar_conjunto.replace(" ", "").isalpha():
-                            if elemento_adicionar_conjunto in conjunto.iterar_conjunto():  
+                            if elemento_adicionar_conjunto in conjunto.listar():  
                                 limpar_tela() 
-                                print(f"⚠️  O nome já existe!") 
+                                print(f"⚠️  {elemento_adicionar_conjunto.title()} já existe!") 
                             else:    
                                 conjunto.adicionar(elemento_adicionar_conjunto)
                                 limpar_tela()
-                                print(f"✅ Adicionado com sucesso!")  
+                                print(f"✅ {elemento_adicionar_conjunto.title()} Adicionado com sucesso!")  
 
                         else:
                             limpar_tela()
@@ -434,22 +434,22 @@ class Menu:
                     # Condicional do conjunto(set) - Exclui elementos.
                     elif opcoes_conjunto == "3":  
                         limpar_tela()
-                        menu_lista()
+                        menu_conjunto()
                         elemento_excluir_conjunto = input("EXCLUIR NOME: ")
                         
-                        if not conjunto.iterar_conjunto():
+                        if not conjunto.listar():
                             limpar_tela()
                             print(f"⚠️  Set vazio!")
 
                         elif elemento_excluir_conjunto.replace(" ", "").isalpha():
-                            if elemento_excluir_conjunto not in conjunto.iterar_conjunto():
+                            if elemento_excluir_conjunto not in conjunto.listar():
                                 limpar_tela()
-                                print(f"⚠️  O elemento não está no conjunto!")  
+                                print(f"⚠️  O elemento {elemento_excluir_conjunto.title()} não está no conjunto!")  
 
                             else:    
                                 conjunto.excluir(elemento_excluir_conjunto)
                                 limpar_tela()
-                                print(f"✅ Excluído com sucesso!")
+                                print(f"✅ {elemento_excluir_conjunto.title()} excluído com sucesso!")
 
                         else:
                             limpar_tela()
@@ -457,45 +457,45 @@ class Menu:
 
                     # Condicional do conjunto(set) - Exclui elementos aleatórios.
                     elif opcoes_conjunto == "4":   
-                        if not conjunto.iterar_conjunto():
+                        if not conjunto.listar():
                             limpar_tela()
                             print(f"⚠️  Set vazio!")
                         else:   
-                            conjunto.excluir_aleatorio()
+                            resultado = conjunto.excluir_aleatorio()
                             limpar_tela()
-                            print(f"✅ Excluído com sucesso!")
+                            print(f"✅ {resultado.title()} excluído com sucesso!")
 
                     # Condicional do conjunto(set) - União de elementos.
                     elif opcoes_conjunto == "5":   
-                        if not conjunto.iterar_conjunto():
+                        if not conjunto.listar():
                             limpar_tela()
                             print(f"⚠️  Set vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ Conjunto criado: {conjunto.iterar_conjunto()}")
+                            print(f"✅ Conjunto criado: {conjunto.listar()}")
                             print(f"✅ Subconjunto para teste: {conjunto.conjunto_suporte}")
                             print(f"✅ União dos conjuntos: {conjunto.uniao()}")
 
                     # Condicional do conjunto(set) - Interseção de elementos.
                     elif opcoes_conjunto == "6":   
-                        if not conjunto.iterar_conjunto():
+                        if not conjunto.listar():
                             print(f"⚠️  Set vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ Conjunto criado: {conjunto.iterar_conjunto()}")
+                            print(f"✅ Conjunto criado: {conjunto.listar()}")
                             print(f"✅ Subconjunto para teste: {conjunto.conjunto_suporte}")
                             print(f"✅ interseção dos conjuntos: {conjunto.intersecao()}")
 
                     # Condicional do conjunto(set) - Diferença de elementos.
                     elif opcoes_conjunto == "7":   
-                        if not conjunto.iterar_conjunto():
+                        if not conjunto.listar():
                             print(f"⚠️  Set vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ Conjunto criado: {conjunto.iterar_conjunto()}")
+                            print(f"✅ Conjunto criado: {conjunto.listar()}")
                             print(f"✅ Subconjunto para teste: {conjunto.conjunto_suporte}")
                             print(f"✅ Diferença dos conjuntos:", conjunto.diferenca())
 

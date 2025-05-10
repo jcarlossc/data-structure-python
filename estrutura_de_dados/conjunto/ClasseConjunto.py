@@ -3,7 +3,7 @@ class ClasseConjunto:
         self.conjunto = set()
         self.conjunto_suporte = set(('jeck da costa', 'duda soares', 'jose carlos'))
 
-    def iterar_conjunto(self):
+    def listar(self):
         return self.conjunto    
     
     def adicionar(self, nome):
@@ -13,7 +13,7 @@ class ClasseConjunto:
         self.conjunto.remove(nome.lower())
 
     def excluir_aleatorio(self):
-        self.conjunto.pop()    
+        return self.conjunto.pop()    
 
     def uniao(self):
         conjunto_unido = self.conjunto.union(self.conjunto_suporte)  
