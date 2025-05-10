@@ -901,13 +901,13 @@ class Menu:
 
                     # Condicional do Heapq - Itera elementos.  
                     if opcoes_fila_heapq == "1":
-                        if not fila_heapq.iterar_heapq():
+                        if not fila_heapq.listar():
                             limpar_tela()
                             print(f"⚠️  Queue vazio!")
 
                         else:   
                             limpar_tela()
-                            print(f"{fila_heapq.iterar_heapq()}")
+                            print(f"{fila_heapq.listar()}")
 
                     # Condicional do Heapq - Adiciona elementos.  
                     elif opcoes_fila_heapq == "2":
@@ -918,7 +918,7 @@ class Menu:
                         if elemento_fila_heapq.replace(" ", "").isalpha():
                             limpar_tela()
                             fila_heapq.adicionar(elemento_fila_heapq.lower())
-                            print(f"✅ Adicionado com sucesso!")
+                            print(f"✅ {elemento_fila_heapq.title()} adicionado com sucesso!")
 
                         else:
                             limpar_tela()
@@ -926,7 +926,7 @@ class Menu:
 
                     # Condicional do Heapq - Quantidade de elementos.  
                     elif opcoes_fila_heapq == "3":
-                        if not fila_heapq.iterar_heapq():
+                        if not fila_heapq.listar():
                             limpar_tela()
                             print(f"⚠️  Queue vazio!")
 
@@ -936,7 +936,7 @@ class Menu:
 
                     # Condicional do Heapq - Exclui elementos.  
                     elif opcoes_fila_heapq == "4":
-                        if not fila_heapq.iterar_heapq():
+                        if not fila_heapq.listar():
                             limpar_tela()
                             print(f"⚠️  Queue vazio!")
 
