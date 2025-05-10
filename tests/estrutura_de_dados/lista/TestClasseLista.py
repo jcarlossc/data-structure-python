@@ -6,7 +6,7 @@ class TestClasseLista(unittest.TestCase):
     """Classe de testes para a classe ClasseLista."""
 
     def setUp(self):
-        """Configuração do objeto ContaPopança."""
+        """Configuração do objeto lista."""
         self.lista = ClasseLista()
 
     def test_adicionar(self):
