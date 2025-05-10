@@ -6,7 +6,7 @@ class ClasseDicionario:
         chave = len(self.dicionario)
         self.dicionario[chave] = {"Nome": nome, "Idade": idade}
         
-    def iterar_dicionario(self):
+    def listar(self):
         return self.dicionario.items()
     
     def pesquisar(self, id):

@@ -598,7 +598,7 @@ class Menu:
                     # Condicional do dicionário - Itera elementos.
                     if opcoes_dicionario == "1":
                         limpar_tela()
-                        if not dicionario.iterar_dicionario():
+                        if not dicionario.listar():
                             print(f"⚠️  Dicionário vazio!")
 
                         elif opcoes_dicionario == None:
@@ -607,7 +607,7 @@ class Menu:
 
                         else:   
                             limpar_tela()
-                            for chave, valor in dicionario.iterar_dicionario():
+                            for chave, valor in dicionario.listar():
                                 print(f"👤 {chave}: {valor}")
 
                     # Condicional do dicionário - Adicionar elementos.
@@ -621,7 +621,7 @@ class Menu:
                             numero_dicionario = int(idade_dicionario)
                             dicionario.adicionar(nome_dicionario, numero_dicionario)
                             limpar_tela()
-                            print(f"✅ Adicionado com sucesso!")
+                            print(f"✅ {nome_dicionario.title()} de {idade_dicionario} anos de idade foi adicionado com sucesso!")
 
                         else:
                             limpar_tela()
@@ -650,13 +650,13 @@ class Menu:
 
                     # Condicional do dicionário - Copiar elementos.
                     elif opcoes_dicionario == "4":
-                        if not dicionario.iterar_dicionario():
+                        if not dicionario.listar():
                             limpar_tela()
                             print(f"⚠️  Dicionário vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ Dicionário: {dicionario.iterar_dicionario()}")  
+                            print(f"✅ Dicionário: {dicionario.listar()}")  
                             print(f"✅ Dicionário copiado: {dicionario.copiar()}")   
 
                     # Condicional do dicionário - Excluir elementos.
@@ -682,14 +682,14 @@ class Menu:
 
                     # Condicional do dicionário - Limpar dicionário.
                     elif opcoes_dicionario == "6":
-                        if not dicionario.iterar_dicionario():
+                        if not dicionario.listar():
                             limpar_tela()
                             print(f"⚠️  Dicionário vazio!")    
 
                         else:
                             limpar_tela()
-                            limpar_dicionario = dicionario.limpar()
-                            print(f"✅ Dicionário apagado com sucesso! {limpar_dicionario}")
+                            dicionario.limpar()
+                            print(f"✅ Dicionário apagado com sucesso!")
 
                     elif opcoes_dicionario == "7":
                         break          
