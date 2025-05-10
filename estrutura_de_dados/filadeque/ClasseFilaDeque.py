@@ -7,7 +7,7 @@ class ClasseFilaDeque:
     def adicionar(self, nome):
         return self.fila_deque.append(nome)  
 
-    def iterar_deque(self):  
+    def listar(self):  
         return self.fila_deque
     
     def adiciona_comeco(self, nome):

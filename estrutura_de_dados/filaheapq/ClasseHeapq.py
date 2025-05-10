@@ -4,7 +4,7 @@ class ClasseHeapq:
     def __init__(self):
         self.lista = []
 
-    def iterar_heapq(self):
+    def listar(self):
         return self.lista 
     
     def adicionar(self, elemento):

@@ -522,63 +522,59 @@ class Menu:
                         limpar_tela()
                         menu_lista()
 
-                        if not conjunto_frozen.iterar_conjunto():
+                        if not conjunto_frozen.listar():
                             limpar_tela()
                             print(f"⚠️  Frozenset vazio!")
 
-                        elif opcoes_conjunto_frozen == None:
-                            limpar_tela()
-                            print(f"❌ Entrada inválida!")     
-
                         else:   
                             limpar_tela()
-                            for itens in conjunto_frozen.iterar_conjunto():
+                            for itens in conjunto_frozen.listar():
                                  print(f"👤 {itens.title()}") 
 
                     # Condicional do conjunto(frozenset) - Unir elementos.
                     elif opcoes_conjunto_frozen == "2": 
-                        if not conjunto_frozen.iterar_conjunto():
+                        if not conjunto_frozen.listar():
                             limpar_tela()
                             print(f"⚠️  Frozenset vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ Conjunto: {conjunto_frozen.iterar_conjunto()}")
+                            print(f"✅ Conjunto: {conjunto_frozen.listar()}")
                             print(f"✅ Subconjunto para teste: {conjunto_frozen.conjunto_frozen_suporte}")
                             print(f"✅ União dos conjuntos: {conjunto_frozen.uniao()}")
 
                     # Condicional do conjunto(frozenset) - Interseção dos elementos.
                     elif opcoes_conjunto_frozen == "3": 
-                        if not conjunto_frozen.iterar_conjunto():
+                        if not conjunto_frozen.listar():
                             limpar_tela()
                             print(f"⚠️  Frozenset vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ Conjunto: {conjunto_frozen.iterar_conjunto()}")
+                            print(f"✅ Conjunto: {conjunto_frozen.listar()}")
                             print(f"✅ Subconjunto para teste: {conjunto_frozen.conjunto_frozen_suporte}")
                             print(f"✅ Interseção dos conjuntos: {conjunto_frozen.intersecao()}")
 
                     # Condicional do conjunto(frozenset) - Diferença dos elementos.
                     elif opcoes_conjunto_frozen == "4": 
-                        if not conjunto_frozen.iterar_conjunto():
+                        if not conjunto_frozen.listar():
                             limpar_tela()
-                            print(f"⚠️  Frozenset vazio1!")
+                            print(f"⚠️  Frozenset vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ Conjunto: {conjunto_frozen.iterar_conjunto()}")
+                            print(f"✅ Conjunto: {conjunto_frozen.listar()}")
                             print(f"✅ Subconjunto para teste: {conjunto_frozen.conjunto_frozen_suporte}")
                             print(f"✅ Diferença dos conjuntos: {conjunto_frozen.diferenca()}")
 
                     # Condicional do conjunto(frozenset) - Copiar elementos.
                     elif opcoes_conjunto_frozen == "5": 
-                        if not conjunto_frozen.iterar_conjunto():
+                        if not conjunto_frozen.listar():
                             print(f"⚠️  Frozenset vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ Conjunto: {conjunto_frozen.iterar_conjunto()}")  
+                            print(f"✅ Conjunto: {conjunto_frozen.listar()}")  
                             print(f"✅ Conjunto copiado: {conjunto_frozen.copiar()}")
 
                     elif opcoes_conjunto_frozen == "6": 
@@ -602,7 +598,7 @@ class Menu:
                     # Condicional do dicionário - Itera elementos.
                     if opcoes_dicionario == "1":
                         limpar_tela()
-                        if not dicionario.iterar_dicionario():
+                        if not dicionario.listar():
                             print(f"⚠️  Dicionário vazio!")
 
                         elif opcoes_dicionario == None:
@@ -611,7 +607,7 @@ class Menu:
 
                         else:   
                             limpar_tela()
-                            for chave, valor in dicionario.iterar_dicionario():
+                            for chave, valor in dicionario.listar():
                                 print(f"👤 {chave}: {valor}")
 
                     # Condicional do dicionário - Adicionar elementos.
@@ -625,7 +621,7 @@ class Menu:
                             numero_dicionario = int(idade_dicionario)
                             dicionario.adicionar(nome_dicionario, numero_dicionario)
                             limpar_tela()
-                            print(f"✅ Adicionado com sucesso!")
+                            print(f"✅ {nome_dicionario.title()} de {idade_dicionario} anos de idade foi adicionado com sucesso!")
 
                         else:
                             limpar_tela()
@@ -654,13 +650,13 @@ class Menu:
 
                     # Condicional do dicionário - Copiar elementos.
                     elif opcoes_dicionario == "4":
-                        if not dicionario.iterar_dicionario():
+                        if not dicionario.listar():
                             limpar_tela()
                             print(f"⚠️  Dicionário vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ Dicionário: {dicionario.iterar_dicionario()}")  
+                            print(f"✅ Dicionário: {dicionario.listar()}")  
                             print(f"✅ Dicionário copiado: {dicionario.copiar()}")   
 
                     # Condicional do dicionário - Excluir elementos.
@@ -686,14 +682,14 @@ class Menu:
 
                     # Condicional do dicionário - Limpar dicionário.
                     elif opcoes_dicionario == "6":
-                        if not dicionario.iterar_dicionario():
+                        if not dicionario.listar():
                             limpar_tela()
                             print(f"⚠️  Dicionário vazio!")    
 
                         else:
                             limpar_tela()
-                            limpar_dicionario = dicionario.limpar()
-                            print(f"✅ Dicionário apagado com sucesso! {limpar_dicionario}")
+                            dicionario.limpar()
+                            print(f"✅ Dicionário apagado com sucesso!")
 
                     elif opcoes_dicionario == "7":
                         break          
@@ -715,14 +711,14 @@ class Menu:
 
                     # Condicional do deque - Iterar elementos.
                     if opcoes_fila_deque == "1":
-                        if not fila_deque.iterar_deque():
+                        if not fila_deque.listar():
                             limpar_tela()
                             print(f"⚠️  Deque vazio!")
 
                         else:   
                             limpar_tela()
-                            for item in fila_deque.iterar_deque():
-                                print(f"👤 {item}")
+                            for item in fila_deque.listar():
+                                print(f"👤 {item.title()}")
 
                     # Condicional do deque - Adicionar elementos.
                     elif opcoes_fila_deque == "2":
@@ -732,8 +728,8 @@ class Menu:
 
                         if nome_fila_deque.replace(" ", "").isalpha():
                             limpar_tela()
-                            fila_deque.adicionar(nome_fila_deque)
-                            print(f"✅ Adicionado com sucesso!")
+                            fila_deque.adicionar(nome_fila_deque.lower())
+                            print(f"✅ {nome_fila_deque.title()} adicionado com sucesso!")
 
                         else:
                             limpar_tela()
@@ -746,14 +742,14 @@ class Menu:
                         nome_fila_deque_comeco = input("DIGITE UM NOME: ")
 
                         if nome_fila_deque_comeco.replace(" ", "").isalpha():
-                            if not fila_deque.iterar_deque():
+                            if not fila_deque.listar():
                                 limpar_tela()
                                 print(f"⚠️  Deque vazio")
 
                             else:    
                                 limpar_tela()
                                 fila_deque.adiciona_comeco(nome_fila_deque_comeco)
-                                print(f"✅ Adicionado com sucesso!")
+                                print(f"✅ {nome_fila_deque_comeco.title()} adicionado no início com sucesso!")
 
                         else:
                             limpar_tela()
@@ -761,27 +757,27 @@ class Menu:
                         
                     # Condicional do deque - Excluir elemento do fim.    
                     elif opcoes_fila_deque == "4":
-                        if not fila_deque.iterar_deque():
+                        if not fila_deque.listar():
                             limpar_tela()
                             print(f"⚠️  Deque vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ {fila_deque.remove_fim()} Removido com sucesso!")  
+                            print(f"✅ {fila_deque.remove_fim()} removido do fim com sucesso!")  
 
                     # Condicional do deque - Excluir elemento do começo.  
                     elif opcoes_fila_deque == "5":
-                        if not fila_deque.iterar_deque():
+                        if not fila_deque.listar():
                             limpar_tela()
                             print(f"⚠️  Deque vazio!")
 
                         else:
                             limpar_tela()
-                            print(f"✅ {fila_deque.remover_primeiro()} Removido com sucesso!")  
+                            print(f"✅ {fila_deque.remover_primeiro()} removido do início com sucesso!")  
 
                     # Condicional do deque - Limpar deque.  
                     elif opcoes_fila_deque == "6":
-                        if not fila_deque.iterar_deque():
+                        if not fila_deque.listar():
                             limpar_tela()
                             print(f"⚠️  Deque vazio!")
 
@@ -838,9 +834,15 @@ class Menu:
                         elemento_fila_queue = input("DIGITE UM NOME: ")
 
                         if elemento_fila_queue.replace(" ", "").isalpha():
-                            limpar_tela()
-                            fila_queue.adicionar(elemento_fila_queue.lower())
-                            print(f"✅ Adicionado com sucesso!")
+
+                            if fila_queue.verificar() == True:
+                                limpar_tela()
+                                print(f"⚠️  Queue Cheia!")
+
+                            else:
+                                limpar_tela()
+                                fila_queue.adicionar(elemento_fila_queue.lower())
+                                print(f"✅ {elemento_fila_queue.title()} adicionado com sucesso!")
 
                         else:
                             limpar_tela()
@@ -899,13 +901,13 @@ class Menu:
 
                     # Condicional do Heapq - Itera elementos.  
                     if opcoes_fila_heapq == "1":
-                        if not fila_heapq.iterar_heapq():
+                        if not fila_heapq.listar():
                             limpar_tela()
                             print(f"⚠️  Queue vazio!")
 
                         else:   
                             limpar_tela()
-                            print(f"{fila_heapq.iterar_heapq()}")
+                            print(f"{fila_heapq.listar()}")
 
                     # Condicional do Heapq - Adiciona elementos.  
                     elif opcoes_fila_heapq == "2":
@@ -916,7 +918,7 @@ class Menu:
                         if elemento_fila_heapq.replace(" ", "").isalpha():
                             limpar_tela()
                             fila_heapq.adicionar(elemento_fila_heapq.lower())
-                            print(f"✅ Adicionado com sucesso!")
+                            print(f"✅ {elemento_fila_heapq.title()} adicionado com sucesso!")
 
                         else:
                             limpar_tela()
@@ -924,7 +926,7 @@ class Menu:
 
                     # Condicional do Heapq - Quantidade de elementos.  
                     elif opcoes_fila_heapq == "3":
-                        if not fila_heapq.iterar_heapq():
+                        if not fila_heapq.listar():
                             limpar_tela()
                             print(f"⚠️  Queue vazio!")
 
@@ -934,7 +936,7 @@ class Menu:
 
                     # Condicional do Heapq - Exclui elementos.  
                     elif opcoes_fila_heapq == "4":
-                        if not fila_heapq.iterar_heapq():
+                        if not fila_heapq.listar():
                             limpar_tela()
                             print(f"⚠️  Queue vazio!")
 
