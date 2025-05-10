@@ -834,9 +834,15 @@ class Menu:
                         elemento_fila_queue = input("DIGITE UM NOME: ")
 
                         if elemento_fila_queue.replace(" ", "").isalpha():
-                            limpar_tela()
-                            fila_queue.adicionar(elemento_fila_queue.lower())
-                            print(f"✅ Adicionado com sucesso!")
+
+                            if fila_queue.verificar() == True:
+                                limpar_tela()
+                                print(f"⚠️  Queue Cheia!")
+
+                            else:
+                                limpar_tela()
+                                fila_queue.adicionar(elemento_fila_queue.lower())
+                                print(f"✅ {elemento_fila_queue.title()} adicionado com sucesso!")
 
                         else:
                             limpar_tela()

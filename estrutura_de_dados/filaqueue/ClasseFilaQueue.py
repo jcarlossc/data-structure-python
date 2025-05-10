@@ -7,7 +7,7 @@ class ClasseFilaQueue:
     def adicionar(self, nome):
         return self.fila_queue.put(nome)    
     
-    def iterar_queue(self):
+    def listar(self):
         return self.fila_queue
 
     def quantidade(self):
