@@ -72,11 +72,12 @@ class Menu:
         def menu_conjunto_frozen():
             print("\n------------------------------- FROZENSET -------------------------------")
             print("1 - LISTAR")
-            print("2 - UNIÃO")
-            print("3 - INTERSEÇÃO")
-            print("4 - DIFERENÇA")
-            print("5 - COPIAR")
-            print("6 - SAIR")
+            print("2 - ADICIONAR")
+            print("3 - UNIÃO")
+            print("4 - INTERSEÇÃO")
+            print("5 - DIFERENÇA")
+            print("6 - COPIAR")
+            print("7 - SAIR")
             print("---------------------------------- FIM ----------------------------------\n")    
 
         # Método menu do dicionário.
@@ -520,7 +521,7 @@ class Menu:
                     # Condicional do conjunto(frozenset) - Itera elementos.
                     if opcoes_conjunto_frozen == "1":
                         limpar_tela()
-                        menu_lista()
+                        menu_conjunto_frozen()
 
                         if not conjunto_frozen.listar():
                             limpar_tela()
@@ -531,8 +532,22 @@ class Menu:
                             for itens in conjunto_frozen.listar():
                                  print(f"👤 {itens.title()}") 
 
+                    elif opcoes_conjunto_frozen == "2":
+                        limpar_tela()
+                        menu_conjunto_frozen()
+                        elemento_adicionar_frozenset = input("ADICIONAR UM NOME: ")
+
+                        if elemento_adicionar_frozenset.replace(" ", "").isalpha():
+                            conjunto_frozen.adicionar(elemento_adicionar_frozenset.lower())
+                            limpar_tela()
+                            print(f"✅ {elemento_adicionar_frozenset.title()} Adicionado com sucesso!")
+                            
+                        else:
+                            limpar_tela()
+                            print(f"❌ Entrada inválida!")               
+
                     # Condicional do conjunto(frozenset) - Unir elementos.
-                    elif opcoes_conjunto_frozen == "2": 
+                    elif opcoes_conjunto_frozen == "3": 
                         if not conjunto_frozen.listar():
                             limpar_tela()
                             print(f"⚠️  Frozenset vazio!")
@@ -544,7 +559,7 @@ class Menu:
                             print(f"✅ União dos conjuntos: {conjunto_frozen.uniao()}")
 
                     # Condicional do conjunto(frozenset) - Interseção dos elementos.
-                    elif opcoes_conjunto_frozen == "3": 
+                    elif opcoes_conjunto_frozen == "4": 
                         if not conjunto_frozen.listar():
                             limpar_tela()
                             print(f"⚠️  Frozenset vazio!")
@@ -556,7 +571,7 @@ class Menu:
                             print(f"✅ Interseção dos conjuntos: {conjunto_frozen.intersecao()}")
 
                     # Condicional do conjunto(frozenset) - Diferença dos elementos.
-                    elif opcoes_conjunto_frozen == "4": 
+                    elif opcoes_conjunto_frozen == "5": 
                         if not conjunto_frozen.listar():
                             limpar_tela()
                             print(f"⚠️  Frozenset vazio!")
@@ -568,7 +583,7 @@ class Menu:
                             print(f"✅ Diferença dos conjuntos: {conjunto_frozen.diferenca()}")
 
                     # Condicional do conjunto(frozenset) - Copiar elementos.
-                    elif opcoes_conjunto_frozen == "5": 
+                    elif opcoes_conjunto_frozen == "6": 
                         if not conjunto_frozen.listar():
                             print(f"⚠️  Frozenset vazio!")
 
@@ -577,7 +592,7 @@ class Menu:
                             print(f"✅ Conjunto: {conjunto_frozen.listar()}")  
                             print(f"✅ Conjunto copiado: {conjunto_frozen.copiar()}")
 
-                    elif opcoes_conjunto_frozen == "6": 
+                    elif opcoes_conjunto_frozen == "7": 
                         break
 
                     else:

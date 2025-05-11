@@ -1,10 +1,15 @@
 class ClasseFrozenset:
     def __init__(self):
-        self.conjunto_frozen = frozenset(['carlos costa', 'maria teresa', 'jose carlos'])
+        self.conjunto = set()
+        self.conjunto_frozen = frozenset()
         self.conjunto_frozen_suporte = frozenset(['maria teresa', 'jeck soares', 'jose carlos'])
 
     def listar(self):
-        return self.conjunto_frozen    
+        return self.conjunto_frozen  
+
+    def adicionar(self, elemento):  
+        self.conjunto.add(elemento)
+        self.conjunto_frozen = frozenset(self.conjunto)
     
     def uniao(self):
         conjunto_frozen_unido = self.conjunto_frozen.union(self.conjunto_frozen_suporte)  
