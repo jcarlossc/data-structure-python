@@ -622,7 +622,7 @@ class Menu:
 
                         else:   
                             limpar_tela()
-                            for chave, valor in dicionario.listar():
+                            for chave, valor in dicionario.listar().items():
                                 print(f"👤 {chave}: {valor}")
 
                     # Condicional do dicionário - Adicionar elementos.
@@ -640,7 +640,7 @@ class Menu:
 
                         else:
                             limpar_tela()
-                            print(f"❌ Entrada inválida!")   
+                            print(f"❌ Entrada inválida!")    
 
                     # Condicional do dicionário - Pesquisar elementos por index.
                     elif opcoes_dicionario == "3":
