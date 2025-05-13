@@ -10,7 +10,7 @@ class ClasseLista:
         return self.estrutura_lista
 
     def inserir_com_posicao(self, posicao, elemento):     
-        self.estrutura_lista.insert(posicao, elemento)   
+        return self.estrutura_lista.insert(posicao, elemento)   
 
     def pesquisar_por_letras(self, elemento):
         for itens in self.estrutura_lista:

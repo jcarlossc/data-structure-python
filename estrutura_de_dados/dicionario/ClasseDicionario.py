@@ -2,12 +2,12 @@ class ClasseDicionario:
     def __init__(self):
         self.dicionario = {}
 
-    def adicionar(self, nome, idade):
+    def adicionar(self, elemento, idade):
         chave = len(self.dicionario)
-        self.dicionario[chave] = {"Nome": nome, "Idade": idade}
+        self.dicionario[chave] = {"Nome": elemento, "Idade": idade}
         
     def listar(self):
-        return self.dicionario.items()
+        return self.dicionario
     
     def pesquisar(self, id):
         return self.dicionario.get(id)
