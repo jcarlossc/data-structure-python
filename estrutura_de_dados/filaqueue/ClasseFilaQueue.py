@@ -18,3 +18,4 @@ class ClasseFilaQueue:
     
     def remover(self):
         return self.fila_queue.get()
+    
