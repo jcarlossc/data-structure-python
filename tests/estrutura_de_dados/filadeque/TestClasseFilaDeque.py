@@ -16,7 +16,7 @@ class TestClasseFilaDeque(unittest.TestCase):
         self.assertEqual(self.deque.listar(), deque(['carlos']))      
         self.assertNotEqual(self.deque.listar(), deque(['jose'])) 
     
-    def test_listaar(self):
+    def test_listar(self):
         """Teste para validar o método listar."""
         self.deque.adicionar('jose')
         self.assertEqual(self.deque.listar(), deque(['jose']))      
