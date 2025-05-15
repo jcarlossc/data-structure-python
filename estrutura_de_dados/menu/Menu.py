@@ -538,9 +538,14 @@ class Menu:
                         elemento_adicionar_frozenset = input("ADICIONAR UM NOME: ")
 
                         if elemento_adicionar_frozenset.replace(" ", "").isalpha():
-                            conjunto_frozen.adicionar(elemento_adicionar_frozenset.lower())
-                            limpar_tela()
-                            print(f"✅ {elemento_adicionar_frozenset.title()} Adicionado com sucesso!")
+                            if elemento_adicionar_frozenset in conjunto_frozen.listar():  
+                                limpar_tela() 
+                                print(f"⚠️  {elemento_adicionar_frozenset.title()} já existe!") 
+                            else: 
+                                conjunto_frozen.adicionar(elemento_adicionar_frozenset.lower())
+                                limpar_tela()
+                                print(f"✅ {elemento_adicionar_frozenset.title()} Adicionado com sucesso!")
+
                             
                         else:
                             limpar_tela()
@@ -778,7 +783,7 @@ class Menu:
 
                         else:
                             limpar_tela()
-                            print(f"✅ {fila_deque.remove_fim()} removido do fim com sucesso!")  
+                            print(f"✅ {fila_deque.remove_fim().title()} removido do fim com sucesso!")  
 
                     # Condicional do deque - Excluir elemento do começo.  
                     elif opcoes_fila_deque == "5":
@@ -788,7 +793,7 @@ class Menu:
 
                         else:
                             limpar_tela()
-                            print(f"✅ {fila_deque.remover_primeiro()} removido do início com sucesso!")  
+                            print(f"✅ {fila_deque.remover_primeiro().title()} removido do início com sucesso!")  
 
                     # Condicional do deque - Limpar deque.  
                     elif opcoes_fila_deque == "6":
