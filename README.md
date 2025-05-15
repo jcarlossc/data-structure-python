@@ -5,9 +5,9 @@ Estudo sobre manipulação de estrutura de dados e os respectivos testes unitár
 VENV: Um ambiente virtual em Python isola dependências do projeto, evitando conflitos com pacotes globais do sistema. Ele permite que cada projeto tenha suas próprias bibliotecas e versões específicas.
 
 ## Sobre a manipulação das estruturas de dados Python deste projeto:
-### Observação 01: todas as estruturas de dados estão configuradas para receberem NOMES, números só serão utilizados para indicar posições(index).
-### Observação 02: as estruturas imutáveis (SET, FROZENSET) foram modificadas na classe Menu, com intuto de dar mais dinamismo à manipulação, ou seja, funciona com se fossem mutáveis para inserção.
-### Observação 03: existe um conjunto adicionado com alguns nomes tanto em SET quanto em FROZENSET que será usado com os métotos UNIÃO(UNION), INTERSEÇÃO(INTERSECTION) e DIFERENÇA(DIFFERENCE); por isso, adicione o nome MARIA entre as suas inserções para que as saídas(prints) sejam melhor compreendidos.
+Observação 01: todas as estruturas de dados estão configuradas para receberem NOMES, números só serão utilizados para indicar posições(index).
+Observação 02: as estruturas imutáveis (SET, FROZENSET) foram modificadas na classe Menu, com intuto de dar mais dinamismo à manipulação, ou seja, funciona com se fossem mutáveis para inserção.
+Observação 03: existe um conjunto adicionado com alguns nomes tanto em SET quanto em FROZENSET que será usado com os métotos UNIÃO(UNION), INTERSEÇÃO(INTERSECTION) e DIFERENÇA(DIFFERENCE); por isso, adicione o nome MARIA entre as suas inserções para que as saídas(prints) sejam melhor compreendidos.
 * LISTA(LIST): sequência ordenada e mutável de elementos. Aceita valores duplicados.
 * TUPLA(TUPLE): sequência ordenada e imutável de elementos. Aceita duplicatas.
 * CONJUNTO(SET): coleção não ordenada, mutável e sem elementos duplicados.
