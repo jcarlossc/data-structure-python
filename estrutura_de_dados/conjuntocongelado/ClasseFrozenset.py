@@ -2,7 +2,7 @@ class ClasseFrozenset:
     def __init__(self):
         self.conjunto = set()
         self.conjunto_frozen = frozenset()
-        self.conjunto_frozen_suporte = frozenset(['maria teresa', 'jeck soares', 'jose carlos'])
+        self.conjunto_frozen_suporte = frozenset(['carlos', 'jose', 'maria'])
 
     def listar(self):
         return self.conjunto_frozen  
