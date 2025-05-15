@@ -32,7 +32,6 @@ class TestClasseFilaQueue(unittest.TestCase):
         nomes = ['carlos', 'maria', 'jose']
         for nome in nomes:
             self.filaqueue.adicionar(nome)
-        
         self.assertEqual(self.filaqueue.remover(), 'carlos')
         self.assertEqual(self.filaqueue.remover(), 'maria')
         self.assertEqual(self.filaqueue.remover(), 'jose')    
