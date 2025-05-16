@@ -17,7 +17,7 @@ class Menu:
 
         # Método principal.
         def menu_principal():
-            print("\n-------------------------- ESTRUTURAS DE DADOS --------------------------")
+            print("\n------------------------🚀 ESTRUTURAS DE DADOS 🚀-----------------------")
             print("1 - LISTA")
             print("2 - TUPLA")
             print("3 - SET")
@@ -31,7 +31,7 @@ class Menu:
 
         # Método menu da lista.
         def menu_lista():
-            print("\n--------------------------------- LISTA ---------------------------------")
+            print("\n------------------------------🚀 LISTA 🚀-------------------------------")
             print("1 - LISTAR")
             print("2 - ADICIONAR")
             print("3 - INSERIR COM POSIÇÃO")
@@ -44,7 +44,7 @@ class Menu:
 
         # Método menu da tupla.
         def menu_tupla():
-            print("\n--------------------------------- TUPLA ---------------------------------")
+            print("\n-------------------------------🚀 TUPLA 🚀------------------------------")
             print("1 - LISTAR")
             print("2 - ADICIONAR")
             print("3 - PESQUISAR OCORRÊNCIAS")
@@ -57,7 +57,7 @@ class Menu:
 
         # Método menu do conjunto(set).
         def menu_conjunto():
-            print("\n-------------------------------- CONJUNTO -------------------------------")
+            print("\n--------------------------------🚀 SET 🚀-------------------------------")
             print("1 - LISTAR")
             print("2 - ADICIONAR")
             print("3 - EXCLUIR")
@@ -70,7 +70,7 @@ class Menu:
 
         # Método menu do conjunto(frozenset).
         def menu_conjunto_frozen():
-            print("\n------------------------------- FROZENSET -------------------------------")
+            print("\n----------------------------🚀 FROZENSET 🚀-----------------------------")
             print("1 - LISTAR")
             print("2 - ADICIONAR")
             print("3 - UNIÃO")
@@ -82,7 +82,7 @@ class Menu:
 
         # Método menu do dicionário.
         def menu_dicionario():
-            print("\n------------------------------- FROZENSET -------------------------------")
+            print("\n----------------------------🚀 DICIONÁRIO 🚀----------------------------")
             print("1 - LISTAR")
             print("2 - ADICIONAR")
             print("3 - BUSCA ELEMENTO")
@@ -94,7 +94,7 @@ class Menu:
 
         # Método menu do deque.
         def menu_fila_deque():
-            print("\n-------------------------------- FILA_DEQUE -------------------------------")
+            print("\n-----------------------------🚀 FILA_DEQUE 🚀---------------------------")
             print("1 - LISTAR")
             print("2 - ADICIONAR")
             print("3 - ADICIONA NO COMEÇO")
@@ -106,7 +106,7 @@ class Menu:
 
         # Método menu do queue.
         def menu_fila_queue():
-            print("\n-------------------------------- FILA_QUEUE -----------------------------")
+            print("\n------------------------------🚀 FILA_QUEUE 🚀--------------------------")
             print("1 - LISTAR")
             print("2 - ADICIONAR")
             print("3 - QUANTIDADE")
@@ -117,7 +117,7 @@ class Menu:
 
         # Método menu do heapq.
         def menu_fila_heapq():
-            print("\n-------------------------------- FILA_HEAPQ -----------------------------")
+            print("\n-----------------------------🚀 FILA_HEAPQ 🚀---------------------------")
             print("1 - LISTAR")
             print("2 - ADICIONAR")
             print("3 - QUANTIDADE")
@@ -145,7 +145,7 @@ class Menu:
         # While principal do menu.
         while True:  
             menu_principal()
-            tipo_estrutura = input("ESCOLHA O TIPO DE ESTRUTURA DE DADOS: ")
+            tipo_estrutura = input(f"🔍 ESCOLHA O TIPO DE ESTRUTURA DE DADOS: ")
 
             # Condicional principal - Lista.
             if tipo_estrutura == "1":
@@ -154,7 +154,7 @@ class Menu:
                 # While da lista.
                 while True:
                     menu_lista()
-                    opcoes_lista = input("ESCOLHA UMA OPERAÇÃO: ")
+                    opcoes_lista = input(f"🔍 ESCOLHA UMA OPERAÇÃO: ")
                     
                     # Condicional da lista - Itera elementos.
                     if opcoes_lista == "1":
@@ -175,7 +175,7 @@ class Menu:
                     elif opcoes_lista == "2":
                         limpar_tela()
                         menu_lista()
-                        elemento_adicionar_lista = input("ADICIONAR UM NOME: ")
+                        elemento_adicionar_lista = input(f"🔍 ADICIONAR UM NOME: ")
 
                         if elemento_adicionar_lista.replace(" ", "").isalpha():
                             lista.adicionar(elemento_adicionar_lista.lower())
@@ -190,8 +190,8 @@ class Menu:
                     elif opcoes_lista == "3":
                         limpar_tela()
                         menu_lista()
-                        posicao_lista = input("ADICIONAR A POSIÇÃO: ")  
-                        elemento_inserir_lista = input("ADICIONAR O NOME: ")  
+                        posicao_lista = input(f"🔍 ADICIONAR A POSIÇÃO: ")  
+                        elemento_inserir_lista = input(f"🔍 ADICIONAR O NOME: ")  
 
                         if posicao_lista.isdigit() and elemento_inserir_lista.replace(" ", "").isalpha():    
                             numero_lista = int(posicao_lista)
@@ -207,7 +207,7 @@ class Menu:
                     elif opcoes_lista == "4":
                         limpar_tela()  
                         menu_lista()  
-                        elemento_pesquisar_lista = input("PESQUISAR POR LETRAS: ")
+                        elemento_pesquisar_lista = input(f"🔍 PESQUISAR POR LETRAS: ")
 
                         if not lista.listar():
                             limpar_tela()
@@ -216,11 +216,14 @@ class Menu:
                         elif elemento_pesquisar_lista.replace(" ", "").isalpha(): 
                             limpar_tela()
                             lista.pesquisar_por_letras(elemento_pesquisar_lista)
+
                             for itens in lista.estrutura_sublista:  
                                 print(f"👤 {itens.title()}")  
+
                             if not lista.sublistar():
                                 limpar_tela()
-                                print(f"⚠️  Não encontrado!")        
+                                print(f"⚠️  Não encontrado!")    
+
                             lista.estrutura_sublista.clear()   
   
                         else:
@@ -231,7 +234,7 @@ class Menu:
                     elif opcoes_lista == "5":
                         limpar_tela()  
                         menu_lista()  
-                        elemento_excluir_lista = input("EXCLUIR NOME: ")
+                        elemento_excluir_lista = input(f"🔍 EXCLUIR NOME: ")
 
                         if not lista.listar():
                             limpar_tela()
@@ -255,7 +258,7 @@ class Menu:
                     elif opcoes_lista == "6":
                         limpar_tela()
                         menu_lista()
-                        contar_elemento_lista = input("DIGITE O NOME: ")
+                        contar_elemento_lista = input(f"🔍 DIGITE O NOME: ")
 
                         if contar_elemento_lista.replace(" ", "").isalpha():
                             quantidade_elementos_lista = lista.quantidade_ocorrencias(contar_elemento_lista)
@@ -298,7 +301,7 @@ class Menu:
                 # While da tupla
                 while True:
                     menu_tupla()
-                    opcoes_tupla = input("ESCOLHA UMA OPERAÇÃO: ")
+                    opcoes_tupla = input(f"🔍 ESCOLHA UMA OPERAÇÃO: ")
 
                     # Condicional da tupla - Itera elementos.
                     if opcoes_tupla == "1":
@@ -316,7 +319,7 @@ class Menu:
                     elif opcoes_tupla == "2":
                         limpar_tela()
                         menu_tupla()
-                        elemento_adicionar_tupla = input("ADICIONAR UM NOME: ")
+                        elemento_adicionar_tupla = input(f"🔍 ADICIONAR UM NOME: ")
 
                         if elemento_adicionar_tupla.replace(" ", "").isalpha():
                             tupla.adicionar(elemento_adicionar_tupla.lower())
@@ -331,7 +334,7 @@ class Menu:
                     elif opcoes_tupla == "3": 
                         limpar_tela()
                         menu_tupla()
-                        ocorrencias_tupla = input("DIGITE UM NOME: ")
+                        ocorrencias_tupla = input(f"🔍 DIGITE UM NOME: ")
 
                         if ocorrencias_tupla.replace(" ", "").isalpha():
                             if not ocorrencias_tupla in tupla.listar():
@@ -350,7 +353,7 @@ class Menu:
                     elif opcoes_tupla == "4": 
                         limpar_tela()
                         menu_tupla()
-                        pesquisa_nome_tupla = input("DIGITE UM NOME: ")
+                        pesquisa_nome_tupla = input(f"🔍 DIGITE UM NOME: ")
 
                         if pesquisa_nome_tupla.replace(" ", "").isalpha():
                             if not pesquisa_nome_tupla in tupla.listar():
@@ -398,7 +401,7 @@ class Menu:
                 # While do conjunto(set)
                 while True:
                     menu_conjunto()
-                    opcoes_conjunto = input("ESCOLHA UMA OPERAÇÃO: ")
+                    opcoes_conjunto = input(f"🔍 ESCOLHA UMA OPERAÇÃO: ")
 
                     # Condicional do conjunto(set) - Iterar elementos.
                     if opcoes_conjunto == "1":
@@ -417,7 +420,7 @@ class Menu:
                     elif opcoes_conjunto == "2":   
                         limpar_tela()
                         menu_conjunto()
-                        elemento_adicionar_conjunto = input("ADICIONAR UM NOME: ")
+                        elemento_adicionar_conjunto = input(f"🔍 ADICIONAR UM NOME: ")
 
                         if elemento_adicionar_conjunto.replace(" ", "").isalpha():
                             if elemento_adicionar_conjunto in conjunto.listar():  
@@ -436,7 +439,7 @@ class Menu:
                     elif opcoes_conjunto == "3":  
                         limpar_tela()
                         menu_conjunto()
-                        elemento_excluir_conjunto = input("EXCLUIR NOME: ")
+                        elemento_excluir_conjunto = input(f"🔍 EXCLUIR NOME: ")
                         
                         if not conjunto.listar():
                             limpar_tela()
@@ -516,7 +519,7 @@ class Menu:
                 # While do conjunto (frozenset)
                 while True:
                     menu_conjunto_frozen()
-                    opcoes_conjunto_frozen = input("ESCOLHA A OPERAÇÃO: ")
+                    opcoes_conjunto_frozen = input(f"🔍 ESCOLHA A OPERAÇÃO: ")
 
                     # Condicional do conjunto(frozenset) - Itera elementos.
                     if opcoes_conjunto_frozen == "1":
@@ -532,10 +535,11 @@ class Menu:
                             for itens in conjunto_frozen.listar():
                                  print(f"👤 {itens.title()}") 
 
+                    # Condicional do conjunto(frozenset) - Adicionar elementos.
                     elif opcoes_conjunto_frozen == "2":
                         limpar_tela()
                         menu_conjunto_frozen()
-                        elemento_adicionar_frozenset = input("ADICIONAR UM NOME: ")
+                        elemento_adicionar_frozenset = input(f"🔍 ADICIONAR UM NOME: ")
 
                         if elemento_adicionar_frozenset.replace(" ", "").isalpha():
                             if elemento_adicionar_frozenset in conjunto_frozen.listar():  
@@ -613,7 +617,7 @@ class Menu:
                 # While do dicionário.
                 while True:
                     menu_dicionario()
-                    opcoes_dicionario = input("ESCOLHA A OPERAÇÃO: ")
+                    opcoes_dicionario = input(f"🔍 ESCOLHA A OPERAÇÃO: ")
 
                     # Condicional do dicionário - Itera elementos.
                     if opcoes_dicionario == "1":
@@ -634,8 +638,8 @@ class Menu:
                     elif opcoes_dicionario == "2":
                         limpar_tela()
                         menu_lista()
-                        nome_dicionario = input("ADICIONAR NOME: ")
-                        idade_dicionario = input("ADICIONAR IDADE: ")
+                        nome_dicionario = input(f"🔍 ADICIONAR NOME: ")
+                        idade_dicionario = input(f"🔍 ADICIONAR IDADE: ")
 
                         if nome_dicionario.replace(" ", "").isalpha() and idade_dicionario.isdigit():
                             numero_dicionario = int(idade_dicionario)
@@ -651,7 +655,7 @@ class Menu:
                     elif opcoes_dicionario == "3":
                         limpar_tela()
                         menu_dicionario()
-                        numero_id = input("DIGITE O IDENTIFICADOR: ")    
+                        numero_id = input(f"🔍 DIGITE O IDENTIFICADOR: ")    
                         
                         if numero_id.isdigit():
                             id_numero = int(numero_id)
@@ -683,7 +687,7 @@ class Menu:
                     elif opcoes_dicionario == "5":
                         limpar_tela()
                         menu_dicionario()
-                        numero_dicionario_excluir = input("DIGITE O IDENTIFICADOR: ")   
+                        numero_dicionario_excluir = input(f"🔍 DIGITE O IDENTIFICADOR: ")   
                         
                         if numero_dicionario_excluir.isdigit():
                             dicionario_excluir = int(numero_dicionario_excluir) 
@@ -727,7 +731,7 @@ class Menu:
                 # While do deque.
                 while True:
                     menu_fila_deque()
-                    opcoes_fila_deque = input("ESCOLHA A OPERAÇÃO: ")
+                    opcoes_fila_deque = input(f"🔍 ESCOLHA A OPERAÇÃO: ")
 
                     # Condicional do deque - Iterar elementos.
                     if opcoes_fila_deque == "1":
@@ -744,7 +748,7 @@ class Menu:
                     elif opcoes_fila_deque == "2":
                         limpar_tela()
                         menu_fila_deque()
-                        nome_fila_deque = input("DIGITE UM NOME: ")
+                        nome_fila_deque = input(f"🔍 DIGITE UM NOME: ")
 
                         if nome_fila_deque.replace(" ", "").isalpha():
                             limpar_tela()
@@ -759,7 +763,7 @@ class Menu:
                     elif opcoes_fila_deque == "3":
                         limpar_tela()
                         menu_fila_deque()
-                        nome_fila_deque_comeco = input("DIGITE UM NOME: ")
+                        nome_fila_deque_comeco = input(f"🔍 DIGITE UM NOME: ")
 
                         if nome_fila_deque_comeco.replace(" ", "").isalpha():
                             if not fila_deque.listar():
@@ -822,7 +826,7 @@ class Menu:
                 # While do Queue.
                 while True:
                     menu_fila_queue()
-                    opcoes_fila_queue = input("ESCOLHA A OPERAÇÃO: ")
+                    opcoes_fila_queue = input(f"🔍 ESCOLHA A OPERAÇÃO: ")
 
                     # Condicional do Queue - Iterar elementos.
                     if opcoes_fila_queue == "1":
@@ -851,7 +855,7 @@ class Menu:
                     elif opcoes_fila_queue == "2":
                         limpar_tela() 
                         menu_fila_queue()
-                        elemento_fila_queue = input("DIGITE UM NOME: ")
+                        elemento_fila_queue = input(f"🔍 DIGITE UM NOME: ")
 
                         if elemento_fila_queue.replace(" ", "").isalpha():
 
@@ -917,7 +921,7 @@ class Menu:
                 # While do Heapq.
                 while True:
                     menu_fila_heapq()
-                    opcoes_fila_heapq = input("ESCOLHA A OPERAÇÃO: ")
+                    opcoes_fila_heapq = input(f"🔍 ESCOLHA A OPERAÇÃO: ")
 
                     # Condicional do Heapq - Itera elementos.  
                     if opcoes_fila_heapq == "1":
@@ -933,7 +937,7 @@ class Menu:
                     elif opcoes_fila_heapq == "2":
                         limpar_tela()
                         menu_fila_heapq()
-                        elemento_fila_heapq = input("DIGITE UM NOME: ")
+                        elemento_fila_heapq = input(f"🔍 DIGITE UM NOME: ")
 
                         if elemento_fila_heapq.replace(" ", "").isalpha():
                             limpar_tela()
